@@ -27,13 +27,10 @@ Hello, I am currently enrolled in the Master’s program at the Department of Ar
 Experiences
 ======
 -----
-- `Mar.2025 - Present`, M.S. Student, [AIMS Lab](https://sites.google.com/khu.ac.kr/aims/home?authuser=0), Department of Industrial and Management Systems Engineering, Kyung Hee University, Yongin, Korea
-- `Mar.2024 - Feb.2025`, Undergraduate Research Assistant Student, [HAIDS Lab](https://sites.google.com/view/ids-kit/home), Department of Industrial Engineering, Kumoh National Institute of Technology, Gumi, Korea
-- `Apr.2023 - Feb.2024`, Undergraduate Research Student, [Kumoh National Institute of Technology Industry-academic Cooperation Foundation](http://sian3.adbank.co.kr/kit_iacf/main/sub01/sub01_03.html), Kumoh National Institute of Technology, Gumi, Korea
-
-# git add .
-# git commit -m "블로그 내용 수정"
-# git push origin main
+- `Mar.2025 - Present`, M.S. Student, [AIMS Lab](https://sites.google.com/khu.ac.kr/aims/home?authuser=0), Department of Artificial Intelligence, Kyung Hee University, Yongin, Korea
+- `June.2023 - June.2024`, R&D Project Manager & Researcher, [ESUPARTNERS](https://esupartners.co.kr/), Healthcare Research in Yonsei University Severance Hospital, Busan, Korea
+- `Apr.2022 - Feb.2025`, Undergraduate Research Student, [AA (AI and its Applications, Artificial Intelligence Research Group)](https://uni.dongseo.ac.kr/sw/index.php?pCode=MN1000046), Dongseo University, Busan, Korea
+- `Apr.2019 - Jan.2020`, Undergraduate Research Student, [MPLab](https://blog.naver.com/PostView.naver?blogId=computer_ck&logNo=222341235962&parentCategoryNo=&categoryNo=80&viewDate=&isShowPopularPosts=false&from=postView), Dongseo University, Busan, Korea
 
 <br/>
 <br/>
