@@ -1,13 +1,13 @@
 ---
 permalink: /
-title: "장현종"
+title: "장현종(JANG HYUNJONG)"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-Welcome to HYUNJONG JANG's Pages!
+Welcome to HYUNJONG JANG's Blog!
 -----
 
 <br/>
