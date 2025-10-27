@@ -22,6 +22,8 @@ plugins:
   - jekyll-paginate
   - jekyll-feed
   - jekyll-archives
+  - jekyll-redirect-from
+  - jemoji
 
 paginate: 5
 paginate_path: /page:num/
