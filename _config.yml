@@ -4,26 +4,31 @@
 title: "Hyeonjong Jang"
 email: ""
 description: "Academic portfolio and research blog."
-url: ""            # 예: https://hyeonjongjang.github.io (사용 시 기입)
-baseurl: ""        # 사용자 페이지면 빈 문자열 유지
-repository: ""     # 예: HyeonjongJang/HyeonjongJang.github.io
+url: "https://hyeonjongjang.github.io"          # ✅ GitHub 사용자 페이지 URL
+baseurl: ""                                      # ✅ 사용자/Org 페이지면 빈 문자열
+repository: "HyeonjongJang/HyeonjongJang.github.io"  # ✅ jekyll-github-metadata용
+
 locale: "en-US"
+timezone: "Asia/Seoul"
 
 # ─────────────────────────────────────────────────────────
-# Build Settings (Minimal Mistakes with remote_theme)
+# Theme / Build
 # ─────────────────────────────────────────────────────────
 remote_theme: "mmistakes/minimal-mistakes"
+
 markdown: kramdown
 highlighter: rouge
 
+# GitHub Pages에서 허용되는 플러그인들 중심
 plugins:
-  - jekyll-include-cache
-  - jekyll-sitemap
-  - jekyll-paginate
   - jekyll-feed
-  - jekyll-archives
+  - jekyll-sitemap
   - jekyll-redirect-from
   - jemoji
+  - jekyll-include-cache
+  - jekyll-paginate
+  - jekyll-archives      # ✅ 빌드 실패 원인 플러그인
+  - jekyll-remote-theme  # remote_theme 사용 시 안전
 
 paginate: 5
 paginate_path: /page:num/
@@ -44,7 +49,7 @@ collections:
   talks:
     output: true
     permalink: /:collection/:path/
-  history:               # ✅ NEW: 커리어 히스토리 컬렉션
+  history:               # ✅ 새 커리어 히스토리 컬렉션
     output: true
     permalink: /:collection/:path/
 
@@ -52,7 +57,7 @@ collections:
 # Defaults (Layouts / Author profile / etc.)
 # ─────────────────────────────────────────────────────────
 defaults:
-  # 페이지
+  # Pages
   - scope:
       path: ""
       type: pages
@@ -63,7 +68,7 @@ defaults:
       comments: false
       share: true
 
-  # 포스트(블로그)
+  # Posts
   - scope:
       path: ""
       type: posts
@@ -111,7 +116,7 @@ defaults:
       author_profile: true
       share: true
 
-  # ✅ History (NEW)
+  # ✅ History
   - scope:
       path: ""
       type: history
@@ -122,7 +127,7 @@ defaults:
       comments: false
 
 # ─────────────────────────────────────────────────────────
-# Archive (Minimal Mistakes)
+# Archives (if needed with jekyll-archives)
 # ─────────────────────────────────────────────────────────
 category_archive:
   type: liquid
@@ -132,7 +137,7 @@ tag_archive:
   path: /tags/
 
 # ─────────────────────────────────────────────────────────
-# Author (필요 시 수정)
+# Author
 # ─────────────────────────────────────────────────────────
 author:
   name: "Hyeonjong Jang"
