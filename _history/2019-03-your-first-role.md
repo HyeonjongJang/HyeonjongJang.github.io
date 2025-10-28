@@ -1,4 +1,4 @@
-# 파일: _history/2019-03-your-first-role.md
+# 파일: _history/2019-03-first-role.md
 ---
 title: "Research Assistant (예시)"
 excerpt: "AI Lab 연구 보조"
@@ -6,7 +6,7 @@ collection: history
 date: 2019-03-01          # 시작일(필수)
 end_date: 2020-08-31      # 종료일(현재 진행 중이면 생략)
 location: "Seoul, South Korea"
-image: "/images/history/kyunghee.png"  # 정사각형 권장
+image: /images/history/kyunghee.png
 link: "https://example.com/news-article"
 order: 1
 ---

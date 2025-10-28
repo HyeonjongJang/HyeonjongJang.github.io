@@ -1,25 +1,22 @@
-# ─────────────────────────────────────────────────────────
+# ─────────────────────────────────────────
 # Site Settings
-# ─────────────────────────────────────────────────────────
+# ─────────────────────────────────────────
 title: "Hyeonjong Jang"
 email: ""
 description: "Academic portfolio and research blog."
-url: "https://hyeonjongjang.github.io"          # ✅ GitHub 사용자 페이지 URL
-baseurl: ""                                      # ✅ 사용자/Org 페이지면 빈 문자열
-repository: "HyeonjongJang/HyeonjongJang.github.io"  # ✅ jekyll-github-metadata용
-
+url: "https://hyeonjongjang.github.io"          # GitHub 사용자 페이지 URL
+baseurl: ""                                      # 사용자/Org 페이지는 빈 문자열
+repository: "HyeonjongJang/HyeonjongJang.github.io"
 locale: "en-US"
 timezone: "Asia/Seoul"
 
-# ─────────────────────────────────────────────────────────
+# ─────────────────────────────────────────
 # Theme / Build
-# ─────────────────────────────────────────────────────────
+# ─────────────────────────────────────────
 remote_theme: "mmistakes/minimal-mistakes"
-
 markdown: kramdown
 highlighter: rouge
 
-# GitHub Pages에서 허용되는 플러그인들 중심
 plugins:
   - jekyll-feed
   - jekyll-sitemap
@@ -27,15 +24,15 @@ plugins:
   - jemoji
   - jekyll-include-cache
   - jekyll-paginate
-  - jekyll-archives      # ✅ 빌드 실패 원인 플러그인
-  - jekyll-remote-theme  # remote_theme 사용 시 안전
+  - jekyll-archives          # 필요 플러그인
+  - jekyll-remote-theme
 
 paginate: 5
 paginate_path: /page:num/
 
-# ─────────────────────────────────────────────────────────
+# ─────────────────────────────────────────
 # Collections
-# ─────────────────────────────────────────────────────────
+# ─────────────────────────────────────────
 collections:
   teaching:
     output: true
@@ -49,13 +46,13 @@ collections:
   talks:
     output: true
     permalink: /:collection/:path/
-  history:               # ✅ 새 커리어 히스토리 컬렉션
+  history:                     # ✅ 커리어 히스토리
     output: true
     permalink: /:collection/:path/
 
-# ─────────────────────────────────────────────────────────
+# ─────────────────────────────────────────
 # Defaults (Layouts / Author profile / etc.)
-# ─────────────────────────────────────────────────────────
+# ─────────────────────────────────────────
 defaults:
   # Pages
   - scope:
@@ -126,9 +123,9 @@ defaults:
       share: true
       comments: false
 
-# ─────────────────────────────────────────────────────────
-# Archives (if needed with jekyll-archives)
-# ─────────────────────────────────────────────────────────
+# ─────────────────────────────────────────
+# Archives (with jekyll-archives)
+# ─────────────────────────────────────────
 category_archive:
   type: liquid
   path: /categories/
@@ -136,22 +133,29 @@ tag_archive:
   type: liquid
   path: /tags/
 
-# ─────────────────────────────────────────────────────────
-# Author
-# ─────────────────────────────────────────────────────────
+# ─────────────────────────────────────────
+# Author (사이드바 확장)
+# ─────────────────────────────────────────
 author:
   name: "Hyeonjong Jang"
-  avatar: "/assets/images/bio-photo.jpg"
-  bio: "AI Researcher"
+  avatar: "/images/bio-photo.jpg"      # 정사각형 권장
+  bio: "AI Researcher at AIMS Lab — EoH+RL, SMR control, RAG-Fuzz."
   location: "Korea"
   links:
     - label: "GitHub"
       icon: "fab fa-github"
       url: "https://github.com/HyeonjongJang"
+    # 필요시 추가
+    # - label: "Google Scholar"
+    #   icon: "ai ai-google-scholar"
+    #   url: "https://scholar.google.com/citations?user=YOUR_ID"
+    # - label: "LinkedIn"
+    #   icon: "fab fa-linkedin"
+    #   url: "https://www.linkedin.com/in/YOUR_ID/"
 
-# ─────────────────────────────────────────────────────────
+# ─────────────────────────────────────────
 # Exclude / Include
-# ─────────────────────────────────────────────────────────
+# ─────────────────────────────────────────
 exclude:
   - node_modules
   - vendor
@@ -164,7 +168,7 @@ exclude:
 include:
   - _pages
 
-# ─────────────────────────────────────────────────────────
+# ─────────────────────────────────────────
 # Permalinks
-# ─────────────────────────────────────────────────────────
+# ─────────────────────────────────────────
 permalink: /:categories/:title/

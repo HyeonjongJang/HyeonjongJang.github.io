@@ -14,7 +14,6 @@ author_profile: true
   margin: 0 auto;
   padding: 20px 0;
 }
-
 /* Timeline Bar */
 .timeline-bar {
   display: flex;
@@ -24,7 +23,6 @@ author_profile: true
   border-bottom: 3px solid #f0f0f0;
   scroll-behavior: smooth;
 }
-
 /* Timeline Item Button */
 .timeline-item {
   flex: 0 0 auto;
@@ -36,161 +34,57 @@ author_profile: true
   background: none;
   position: relative;
 }
-
-.timeline-item:hover {
-  transform: translateY(-5px);
-}
-
-.timeline-item.active {
-  background-color: #f0f0f0;
-  border-radius: 8px;
-}
-
+.timeline-item:hover { transform: translateY(-5px); }
+.timeline-item.active { background-color: #f0f0f0; border-radius: 8px; }
 /* Timeline Icon */
 .timeline-icon {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto 10px;
-  border: 3px solid #ddd;
-  transition: border-color 0.3s ease;
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 80px; height: 80px; border-radius: 50%; overflow: hidden;
+  margin: 0 auto 10px; border: 3px solid #ddd; transition: border-color 0.3s ease;
+  background-color: #fff; display: flex; align-items: center; justify-content: center;
 }
-
-.timeline-item.active .timeline-icon {
-  border-color: #4285f4;
-}
-
-.timeline-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
+.timeline-item.active .timeline-icon { border-color: #4285f4; }
+.timeline-icon img { width: 100%; height: 100%; object-fit: cover; }
 /* Timeline Label */
-.timeline-label {
-  font-size: 14px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 5px;
-}
-
-.timeline-date {
-  font-size: 12px;
-  color: #666;
-}
-
+.timeline-label { font-size: 14px; font-weight: 600; color: #333; margin-bottom: 5px; }
+.timeline-date { font-size: 12px; color: #666; }
 /* Detail Section */
 .history-detail {
-  display: none;
-  padding: 30px;
-  background-color: #fafafa;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  animation: fadeIn 0.5s;
+  display: none; padding: 30px; background-color: #fafafa;
+  border-radius: 8px; margin-bottom: 20px; animation: fadeIn 0.5s;
 }
-
-.history-detail.active {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+.history-detail.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 /* Detail Content */
-.detail-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-.detail-image {
-  width: 120px;
-  height: 120px;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-right: 30px;
-  flex-shrink: 0;
-}
-
-.detail-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.detail-info h2 {
-  margin: 0 0 10px 0;
-  color: #333;
-}
-
-.detail-meta {
-  color: #666;
-  font-size: 16px;
-  margin-bottom: 15px;
-}
-
-.detail-content {
-  line-height: 1.8;
-  color: #444;
-}
-
+.detail-header { display: flex; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
+.detail-image { width: 120px; height: 120px; border-radius: 10px; overflow: hidden; margin-right: 30px; flex-shrink: 0; }
+.detail-image img { width: 100%; height: 100%; object-fit: cover; }
+.detail-info h2 { margin: 0 0 10px 0; color: #333; }
+.detail-meta { color: #666; font-size: 16px; margin-bottom: 15px; }
+.detail-content { line-height: 1.8; color: #444; }
 .news-link {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #4285f4;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  display: inline-block; margin-top: 20px; padding: 10px 20px;
+  background-color: #4285f4; color: white; text-decoration: none; border-radius: 5px; transition: background-color 0.3s ease;
 }
-
-.news-link:hover {
-  background-color: #357ae8;
-  color: white;
-}
-
-/* Responsive Design */
+.news-link:hover { background-color: #357ae8; color: white; }
+/* Responsive */
 @media (max-width: 768px) {
-  .timeline-icon {
-    width: 60px;
-    height: 60px;
-  }
-
-  .timeline-item {
-    padding: 10px;
-  }
-
-  .detail-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .detail-image {
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
+  .timeline-icon { width: 60px; height: 60px; }
+  .timeline-item { padding: 10px; }
+  .detail-header { flex-direction: column; align-items: flex-start; }
+  .detail-image { margin-right: 0; margin-bottom: 20px; }
 }
 </style>
 
-<!-- Timeline Bar -->
 <div class="timeline-container">
+  {% assign sorted_history = site.history | sort: 'date' %}
+  {% if sorted_history == empty %}
+    <div class="notice--warning">
+      <p><strong>No history items found.</strong> Create files under <code>_history/</code> like <code>_history/2019-03-first-role.md</code> with <code>collection: history</code> in front matter.</p>
+    </div>
+  {% endif %}
+
+  <!-- Timeline Bar -->
   <div class="timeline-bar" id="timelineBar">
-    {% assign sorted_history = site.history | sort: 'date' %}
     {% for item in sorted_history %}
       <div class="timeline-item" data-target="history-{{ forloop.index }}" onclick="showHistory(this)">
         <div class="timeline-icon">
@@ -201,7 +95,9 @@ author_profile: true
           {% endif %}
         </div>
         <div class="timeline-label">{{ item.title }}</div>
-        <div class="timeline-date">{{ item.date | date: "%b %Y" }}{% if item.end_date %} - {{ item.end_date | date: "%b %Y" }}{% else %} - Present{% endif %}</div>
+        <div class="timeline-date">
+          {{ item.date | date: "%b %Y" }}{% if item.end_date %} - {{ item.end_date | date: "%b %Y" }}{% else %} - Present{% endif %}
+        </div>
       </div>
     {% endfor %}
   </div>
@@ -221,20 +117,16 @@ author_profile: true
           <div class="detail-info">
             <h2>{{ item.title }}</h2>
             <div class="detail-meta">
-              <strong>{{ item.date | date: "%B %Y" }}{% if item.end_date %} - {{ item.end_date | date: "%B %Y" }}{% else %} - Present{% endif %}</strong>
-              {% if item.location %}
-                <br>{{ item.location }}
-              {% endif %}
+              <strong>
+                {{ item.date | date: "%B %Y" }}{% if item.end_date %} - {{ item.end_date | date: "%B %Y" }}{% else %} - Present{% endif %}
+              </strong>
+              {% if item.location %}<br>{{ item.location }}{% endif %}
             </div>
           </div>
         </div>
-
-        <div class="detail-content">
-          {{ item.content }}
-        </div>
-
+        <div class="detail-content">{{ item.content }}</div>
         {% if item.link %}
-          <a href="{{ item.link }}" class="news-link" target="_blank">Read Related News Article</a>
+          <a href="{{ item.link }}" class="news-link" target="_blank" rel="noopener">Read Related News Article</a>
         {% endif %}
       </div>
     {% endfor %}
@@ -243,33 +135,14 @@ author_profile: true
 
 <script>
 function showHistory(element) {
-  // Remove active class from all timeline items
-  const timelineItems = document.querySelectorAll('.timeline-item');
-  timelineItems.forEach(item => item.classList.remove('active'));
-
-  // Add active class to clicked item
+  document.querySelectorAll('.timeline-item').forEach(i => i.classList.remove('active'));
   element.classList.add('active');
-
-  // Hide all detail sections
-  const detailSections = document.querySelectorAll('.history-detail');
-  detailSections.forEach(section => section.classList.remove('active'));
-
-  // Show selected detail section
-  const targetId = element.getAttribute('data-target');
-  const targetSection = document.getElementById(targetId);
-  if (targetSection) {
-    targetSection.classList.add('active');
-
-    // Smooth scroll to detail section
-    targetSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
+  document.querySelectorAll('.history-detail').forEach(s => s.classList.remove('active'));
+  const target = document.getElementById(element.getAttribute('data-target'));
+  if (target) target.classList.add('active');
 }
-
-// Show first item by default
-window.addEventListener('DOMContentLoaded', (event) => {
-  const firstItem = document.querySelector('.timeline-item');
-  if (firstItem) {
-    showHistory(firstItem);
-  }
+window.addEventListener('DOMContentLoaded', () => {
+  const first = document.querySelector('.timeline-item');
+  if (first) showHistory(first);
 });
 </script>
