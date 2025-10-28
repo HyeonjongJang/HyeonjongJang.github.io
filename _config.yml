@@ -1,38 +1,204 @@
-# ─────────────────────────────────────────
-# Site Settings
-# ─────────────────────────────────────────
-title: "Hyeonjong Jang"
-email: ""
-description: "Academic portfolio and research blog."
-url: "https://hyeonjongjang.github.io"          # GitHub 사용자 페이지 URL
-baseurl: ""                                      # 사용자/Org 페이지는 빈 문자열
-repository: "HyeonjongJang/HyeonjongJang.github.io"
-locale: "en-US"
-timezone: "Asia/Seoul"
+# Welcome to Jekyll!
+# (academicpages 기본 템플릿을 기준으로 최소 변경)
 
-# ─────────────────────────────────────────
-# Theme / Build
-# ─────────────────────────────────────────
-remote_theme: "mmistakes/minimal-mistakes"
+# Basic Site Settings
+locale                   : "en-US"
+site_theme               : "default" # "default", "air"
+title                    : "Hyeonjong Jang"
+title_separator          : "-"
+name                     : &name "Hyeonjong Jang"
+description              : &description "Hyeonjong Jang's academic portfolio"
+url                      : https://hyeonjongjang.github.io   # ✅ 본인 페이지로 수정
+baseurl                  : ""                                 # 사용자/Org 페이지는 빈 문자열
+repository               : "HyeonjongJang/HyeonjongJang.github.io"  # ✅ 본인 리포로 수정
+
+# Site Author (sidebar)
+author:
+  avatar           : "/images/profile.png"  # ✅ /images 경로 사용 권장(정사각형 원본 권장)
+  name             : "Hyeonjong Jang"
+  pronouns         :
+  bio              : "AI Researcher at AIMS Lab — EoH+RL, SMR control, RAG-Fuzz."
+  location         : "Korea"
+  employer         :
+  uri              :
+  email            :
+
+  # Academic websites
+  academia         :
+  arxiv            :
+  googlescholar    :
+  inspire-hep      :
+  impactstory      :
+  orcid            :
+  semantic         :
+  pubmed           :
+  researchgate     :
+  scopus           :
+
+  # Repositories and software development
+  bitbucket        :
+  codepen          :
+  dribbble         :
+  github           : "HyeonjongJang"   # ✅ 본인 계정으로
+  kaggle           :
+  stackoverflow    :
+
+  # Social media (필요 시 채우세요)
+  artstation       :
+  bluesky          :
+  facebook         :
+  flickr           :
+  foursquare       :
+  goodreads        :
+  google_plus      :
+  keybase          :
+  instagram        :
+  lastfm           :
+  linkedin         :
+  mastodon         :
+  medium           :
+  pinterest        :
+  soundcloud       :
+  steam            :
+  telegram         :
+  tumblr           :
+  twitter          :
+  vine             :
+  weibo            :
+  wikipedia        :
+  xing             :
+  youtube          :
+  zhihu            :
+
+# Publication Category
+publication_category:
+  books:
+    title: 'Books'
+  manuscripts:
+    title: 'Journal Articles'
+  conferences:
+    title: 'Conference Papers'
+
+# Site Settings
+teaser                   :
+breadcrumbs              : false
+words_per_minute         : 160
+future                   : true
+read_more                : "disabled"
+talkmap_link             : false
+comments:
+  provider               :
+  disqus:
+    shortname            :
+  discourse:
+    server               :
+  facebook:
+    appid                :
+    num_posts            :
+    colorscheme          :
+staticman:
+  allowedFields          : ['name', 'email', 'url', 'message']
+  branch                 : "gh-pages"
+  commitMessage          : "New comment."
+  filename               : comment-{@timestamp}
+  format                 : "yml"
+  moderation             : true
+  path                   : "_data/comments/{options.slug}"
+  requiredFields         : ['name', 'email', 'message']
+  transforms:
+    email                : "md5"
+  generatedFields:
+    date:
+      type               : "date"
+      options:
+        format           : "iso8601"
+atom_feed:
+  hide                   : false
+  path                   :
+
+# SEO
+google_site_verification :
+bing_site_verification   :
+alexa_site_verification  :
+yandex_site_verification :
+
+# Social Sharing
+twitter:
+  username               : &twitter
+facebook:
+  username               :
+  app_id                 :
+  publisher              :
+og_image                 :
+og_description           :
+social:
+  type                   :
+  name                   :
+  links:
+
+# Analytics
+analytics:
+  provider               : "false"
+  google:
+    tracking_id          :
+
+# Reading Files
+include:
+  - .htaccess
+  - _pages
+  - files
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - .asset-cache
+  - .bundle
+  - .github
+  - .jekyll-assets-cache
+  - .sass-cache
+  - assets/js/_main.js
+  - assets/js/plugins
+  - assets/js/vendor
+  - CHANGELOG
+  - Capfile
+  - config
+  - Dockerfile
+  - Gemfile
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - local
+  - log
+  - node_modules
+  - package.json*
+  - Rakefile
+  - README
+  - tmp
+  - vendor
+keep_files:
+  - .git
+  - .svn
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+# Conversion
 markdown: kramdown
 highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
 
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-redirect-from
-  - jemoji
-  - jekyll-include-cache
-  - jekyll-paginate
-  - jekyll-archives          # 필요 플러그인
-  - jekyll-remote-theme
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
 
-paginate: 5
-paginate_path: /page:num/
-
-# ─────────────────────────────────────────
-# Collections
-# ─────────────────────────────────────────
+# Collections (✅ history 추가)
 collections:
   teaching:
     output: true
@@ -46,26 +212,13 @@ collections:
   talks:
     output: true
     permalink: /:collection/:path/
-  history:                     # ✅ 커리어 히스토리
+  history:                    # ✅ 추가된 컬렉션
     output: true
     permalink: /:collection/:path/
 
-# ─────────────────────────────────────────
-# Defaults (Layouts / Author profile / etc.)
-# ─────────────────────────────────────────
+# Defaults (✅ pages/history 기본 프로필 off)
 defaults:
-  # Pages
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: single
-      author_profile: false
-      read_time: false
-      comments: false
-      share: true
-
-  # Posts
+  # _posts
   - scope:
       path: ""
       type: posts
@@ -73,47 +226,58 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: false
+      comments: true
       share: true
       related: true
 
-  # Teaching
+  # _pages (기본 프로필 OFF로 전환)
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: false
+
+  # _teaching
   - scope:
       path: ""
       type: teaching
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       share: true
+      comments: true
 
-  # Publications
+  # _publications
   - scope:
       path: ""
       type: publications
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       share: true
+      comments: true
 
-  # Portfolio
+  # _portfolio
   - scope:
       path: ""
       type: portfolio
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       share: true
+      comment: true
 
-  # Talks
+  # _talks
   - scope:
       path: ""
       type: talks
     values:
-      layout: single
-      author_profile: true
+      layout: talk
+      author_profile: false
       share: true
 
-  # ✅ History
+  # ✅ _history (기본 프로필 OFF)
   - scope:
       path: ""
       type: history
@@ -123,9 +287,34 @@ defaults:
       share: true
       comments: false
 
-# ─────────────────────────────────────────
-# Archives (with jekyll-archives)
-# ─────────────────────────────────────────
+# Sass/SCSS
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Outputting
+permalink: /:categories/:title/
+timezone: Asia/Seoul
+
+# Plugins (academicpages 기본 유지)
+plugins:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jemoji
+
+# Mimic GitHub Pages with --safe
+whitelist:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jemoji
+
+# Archives (Liquid 방식 유지)
 category_archive:
   type: liquid
   path: /categories/
@@ -133,42 +322,8 @@ tag_archive:
   type: liquid
   path: /tags/
 
-# ─────────────────────────────────────────
-# Author (사이드바 확장)
-# ─────────────────────────────────────────
-author:
-  name: "Hyeonjong Jang"
-  avatar: "/images/bio-photo.jpg"      # 정사각형 권장
-  bio: "AI Researcher at AIMS Lab — EoH+RL, SMR control, RAG-Fuzz."
-  location: "Korea"
-  links:
-    - label: "GitHub"
-      icon: "fab fa-github"
-      url: "https://github.com/HyeonjongJang"
-    # 필요시 추가
-    # - label: "Google Scholar"
-    #   icon: "ai ai-google-scholar"
-    #   url: "https://scholar.google.com/citations?user=YOUR_ID"
-    # - label: "LinkedIn"
-    #   icon: "fab fa-linkedin"
-    #   url: "https://www.linkedin.com/in/YOUR_ID/"
-
-# ─────────────────────────────────────────
-# Exclude / Include
-# ─────────────────────────────────────────
-exclude:
-  - node_modules
-  - vendor
-  - Gemfile
-  - Gemfile.lock
-  - package.json
-  - package-lock.json
-  - README.md
-
-include:
-  - _pages
-
-# ─────────────────────────────────────────
-# Permalinks
-# ─────────────────────────────────────────
-permalink: /:categories/:title/
+# HTML Compression
+compress_html:
+  clippings: all
+  ignore:
+    envs: development
