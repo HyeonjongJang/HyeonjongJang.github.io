@@ -21,17 +21,16 @@ author_profile: false
 .timeline-item.left  { left: 0;   text-align: right; }
 .timeline-item.right { left: 50%; text-align: left;  }
 
+/* Card with hover lift (keep the effect you liked) */
 .timeline-card {
   display: inline-flex; align-items: center; gap: 12px; padding: 12px 14px;
   border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(20,40,90,.08);
-  border: 1px solid #eef2fb; cursor: pointer;
+  border: 1px solid #eef2fb; cursor: pointer; text-decoration: none;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 .timeline-item.left .timeline-card { flex-direction: row-reverse; }
 .timeline-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(20,40,90,.12); border-color: #d9e3ff; }
 .timeline-card.active { border-color: #4c7af2; box-shadow: 0 8px 24px rgba(76,122,242,.18); }
-
-/* (요청) 중앙 점 제거: .timeline-dot 삭제 */
 
 /* Avatar */
 .timeline-avatar { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; border: 3px solid #e6ebfb; flex: 0 0 56px; }
@@ -83,14 +82,12 @@ author_profile: false
     {% for item in sorted %}
       {% assign side = forloop.index0 | modulo: 2 %}
       <div class="timeline-item {% if side == 0 %}left{% else %}right{% endif %}">
-        <!-- (요청) 중앙 점 요소 제거 -->
-        <button
-          type="button"
+        <!-- anchor 기반: 클릭 시 #detail-N 으로 이동 -->
+        <a
           class="timeline-card"
+          href="#detail-{{ forloop.index }}"
           data-target="detail-{{ forloop.index }}"
           aria-controls="detail-panel"
-          aria-expanded="false"
-          onclick="selectHistory(this)"
         >
           <div class="timeline-avatar">
             {% if item.image %}
@@ -106,18 +103,16 @@ author_profile: false
             <div class="timeline-title">{{ item.title }}</div>
             {% if item.location %}<div class="timeline-place">{{ item.location }}</div>{% endif %}
           </div>
-        </button>
+        </a>
       </div>
     {% endfor %}
   </div>
 
   <!-- Visible detail panel -->
-  <section class="detail-panel" id="detail-panel" aria-live="polite"></section>
-
-  <!-- Hidden store (detail fragments) -->
-  <div id="detail-store" aria-hidden="true" style="display:none">
+  <section class="detail-panel" id="detail-panel" aria-live="polite">
+    {% comment %} 모든 상세 블록을 패널 안에 렌더하고, 해시(#detail-N)로 보이기 제어 {% endcomment %}
     {% for item in sorted %}
-      <div id="detail-{{ forloop.index }}">
+      <div id="detail-{{ forloop.index }}" class="detail-fragment" style="display:none">
         <div class="detail-head">
           <div class="thumb">
             {% if item.image %}
@@ -150,50 +145,37 @@ author_profile: false
         {% endif %}
       </div>
     {% endfor %}
-  </div>
+  </section>
 </div>
 
 <script>
+/* 해시(#detail-N) 기반으로 상세 표시: 인라인 이벤트 의존 제거 */
 (function() {
-  function swapDetailFromStore(targetId) {
-    const panel = document.getElementById('detail-panel');
-    if (!panel) return;
+  function showByHash(hash) {
+    var id = (hash || '').replace(/^#/, '');
+    var fragments = document.querySelectorAll('.detail-fragment');
+    fragments.forEach(function(el){ el.style.display = 'none'; });
 
-    // CSS.escape 의존 제거: getElementById 로 안전 접근
-    const frag = document.getElementById(targetId);
-    if (!frag) return;
+    var target = id ? document.getElementById(id) : null;
+    if (!target && fragments.length) target = fragments[0];  // 기본 첫 항목
+    if (target) target.style.display = 'block';
 
-    panel.innerHTML = frag.innerHTML;
-
-    if (window.matchMedia('(max-width: 900px)').matches) {
-      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    // 타임라인 카드 active 표시
+    document.querySelectorAll('.timeline-card').forEach(function(a) {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + (target ? target.id : '')) {
+        a.classList.add('active');
+      }
+    });
   }
 
-  window.selectHistory = function(btn) {
-    document.querySelectorAll('.timeline-card').forEach(el => {
-      el.classList.remove('active');
-      el.setAttribute('aria-expanded', 'false');
-    });
-    btn.classList.add('active');
-    btn.setAttribute('aria-expanded', 'true');
-
-    const target = btn.getAttribute('data-target');
-    swapDetailFromStore(target);
-  };
-
-  // 첫 아이템 자동 선택
-  window.addEventListener('DOMContentLoaded', () => {
-    const first = document.querySelector('.timeline-card');
-    if (first) first.click();
-  });
-
-  // 키보드 접근성
-  document.addEventListener('keydown', (e) => {
-    if (!e.target.classList.contains('timeline-card')) return;
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      e.target.click();
+  window.addEventListener('hashchange', function(){ showByHash(location.hash); });
+  window.addEventListener('DOMContentLoaded', function(){
+    showByHash(location.hash);
+    // 해시가 없으면 첫 항목으로 이동(선택)
+    if (!location.hash) {
+      var first = document.querySelector('.timeline-card');
+      if (first) first.click();
     }
   });
 })();
