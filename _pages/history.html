@@ -40,25 +40,34 @@ author_profile: false
 .timeline-title{font-weight:700;color:#223055;line-height:1.25}
 .timeline-place{font-size:.86rem;color:#4a597a}
 
-/* ===== Detail Panel (CSS-only target) ===== */
+/* ===== Detail Panel ===== */
 .detail-panel{margin-top:8px;padding:22px;border-radius:14px;background:#fafcff;border:1px solid #ecf2ff;
   box-shadow:0 2px 14px rgba(18,46,120,.06)}
-.detail-fragment{display:none}              /* 기본적으로 감춤 */
-.detail-fragment:first-of-type{display:block}/* 해시가 없을 때는 첫 항목을 표시 */
+.detail-fragment{display:none}                     /* 기본 감춤 */
+.detail-fragment:first-of-type{display:block}      /* 해시가 없을 때는 첫 항목 표시 */
 
-/* :target이 존재하면 첫 항목 감추고, 대상만 표시 */
+/* :target이 있을 때는 첫 항목 감추고 대상만 표시 */
 .detail-panel:has(.detail-fragment:target) .detail-fragment:first-of-type{display:none}
+/* ⬇️ 우선순위를 보장하기 위해 target 규칙을 맨 아래에 둡니다 */
 .detail-fragment:target{display:block}
 
+/* Detail contents */
 .detail-head{display:flex;align-items:center;gap:18px;margin-bottom:12px}
 .detail-head .thumb{width:84px;height:84px;border-radius:12px;overflow:hidden;border:3px solid #e6ebfb;flex:0 0 84px}
 .detail-head .thumb img{width:100%;height:100%;object-fit:cover}
 .detail-head .info h2{margin:0 0 4px;color:#223055}
 .detail-head .info .when-where{color:#5b688a;font-size:.92rem}
 .detail-content{color:#36425e;line-height:1.75}
-.detail-actions a.news-link{display:inline-block;margin-top:14px;padding:9px 14px;background:#4c7af2;color:#fff;
-  text-decoration:none;border-radius:8px;transition:background .15s ease}
+.detail-actions{display:flex;gap:10px;margin-top:14px}
+.detail-actions a.btn{display:inline-block;padding:9px 14px;border-radius:8px;text-decoration:none}
+.detail-actions a.news-link{background:#4c7af2;color:#fff;transition:background .15s ease}
 .detail-actions a.news-link:hover{background:#3e68d6}
+.detail-actions a.close-link{background:#eef2ff;color:#2a3a6a}
+.detail-actions a.close-link:hover{background:#e1e8ff}
+
+/* ===== 타겟이 있을 때 타임라인 숨기기 (요청: 상세만 보기) ===== */
+.timeline-wrapper:has(.detail-fragment:target) .timeline{display:none}
+.timeline-wrapper:has(.detail-fragment:target) .detail-panel{margin-top:0}
 
 /* Empty state */
 .notice--warning{background:#fff7e6;color:#8a5a00;border:1px solid #ffd699;padding:12px 14px;border-radius:8px}
@@ -73,7 +82,7 @@ author_profile: false
 </style>
 
 <div class="timeline-wrapper">
-  <div class="timeline-header">아이콘을 클릭하면 하단 상세 패널이 갱신됩니다. (스크립트 없이 CSS만 사용)</div>
+  <div class="timeline-header">아이콘 클릭 → 상세 전용 화면 | 같은 아이콘 다시 클릭 → 닫힘</div>
 
   {% assign sorted = site.history | sort: "date" %}
   {% if sorted == empty %}
@@ -88,8 +97,7 @@ author_profile: false
     {% for item in sorted %}
       {% assign side = forloop.index0 | modulo: 2 %}
       <div class="timeline-item {% if side == 0 %}left{% else %}right{% endif %}">
-        <!-- 해시 기반: 클릭 시 #detail-N 으로 이동 -->
-        <a class="timeline-card" href="#detail-{{ forloop.index }}">
+        <a class="timeline-card js-history-link" href="#detail-{{ forloop.index }}">
           <div class="timeline-avatar">
             {% if item.image %}
               <img src="{{ item.image }}" alt="{{ item.title }}">
@@ -109,10 +117,10 @@ author_profile: false
     {% endfor %}
   </div>
 
-  <!-- Detail panel: 모든 상세 블록 렌더, CSS :target 으로 표시 전환 -->
+  <!-- Detail panel -->
   <section class="detail-panel" id="detail-panel">
     {% for item in sorted %}
-      <div id="detail-{{ forloop.index }}" class="detail-fragment">
+      <div id="detail-{{ forloop.index }}" class="detail-fragment" tabindex="-1">
         <div class="detail-head">
           <div class="thumb">
             {% if item.image %}
@@ -138,12 +146,75 @@ author_profile: false
           {{ item.content }}
         </div>
 
-        {% if item.link %}
-          <div class="detail-actions">
-            <a class="news-link" href="{{ item.link }}" target="_blank" rel="noopener">Related News / Link</a>
-          </div>
-        {% endif %}
+        <div class="detail-actions">
+          {% if item.link %}
+            <a class="btn news-link" href="{{ item.link }}" target="_blank" rel="noopener">Related News / Link</a>
+          {% endif %}
+          <!-- 닫기 버튼: 해시 제거 -->
+          <a class="btn close-link js-close-detail" href="#">Back to timeline</a>
+        </div>
       </div>
     {% endfor %}
   </section>
 </div>
+
+<script>
+/* 토글 동작: 같은 아이콘을 다시 클릭하면 해시 제거(닫기) */
+(function(){
+  function currentIdFromHash(){
+    return (location.hash || '').replace(/^#/, '');
+  }
+
+  function toggleHash(targetId){
+    if (!targetId) return;
+    var curr = currentIdFromHash();
+    if (curr === targetId){
+      // 같은 아이템을 다시 누르면 해시 제거(닫기)
+      history.pushState("", document.title, location.pathname + location.search);
+      // 스크롤을 타임라인 상단으로
+      var tl = document.getElementById('timeline');
+      if (tl) tl.scrollIntoView({behavior:'smooth', block:'start'});
+    }else{
+      location.hash = '#' + targetId;
+      // 상세가 열린 뒤 포커스 이동 (접근성)
+      setTimeout(function(){
+        var el = document.getElementById(targetId);
+        if (el) el.focus({preventScroll:true});
+        // 상세만 보이게 되므로 상단으로 스크롤
+        window.scrollTo({top:0, behavior:'smooth'});
+      }, 0);
+    }
+  }
+
+  // 아이콘(카드) 클릭 → 토글
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('.js-history-link');
+    if (!a) return;
+    e.preventDefault();
+    var href = a.getAttribute('href') || '';
+    var id = href.replace(/^#/, '');
+    toggleHash(id);
+  });
+
+  // 상세 패널 'Back to timeline' → 해시 제거
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.js-close-detail');
+    if (!btn) return;
+    e.preventDefault();
+    history.pushState("", document.title, location.pathname + location.search);
+    var tl = document.getElementById('timeline');
+    if (tl) tl.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  // 새로고침/직접 주소 접근 시도: 첫 항목 기본 표시
+  window.addEventListener('DOMContentLoaded', function(){
+    if (!location.hash){
+      var first = document.querySelector('.js-history-link');
+      if (first){
+        // 첫 항목 표시를 기본으로 유지(해시는 비움)
+        // CSS가 first-of-type을 보여주므로 해시 설정 불필요
+      }
+    }
+  });
+})();
+</script>
