@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Projects & Programs and Experiences Lists"
+title: "Projects & Programs"
 permalink: /project/
 author_profile: true
 redirect_from:
@@ -9,16 +9,98 @@ redirect_from:
 
 {% include base_path %}
 
-**Career Historys**
+<style>
+.archive details {
+  border: 1px solid #e6e8eb;
+  border-radius: 6px;
+  margin: 0.45em 0;
+  padding: 0 0.9em;
+  background: #fafbfc;
+  transition: background 0.15s, border-color 0.15s;
+}
+.archive details[open] {
+  background: #fff;
+  border-color: #d4d9df;
+}
+.archive summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.6em 0 0.6em 1.5em;
+  position: relative;
+  outline: none;
+}
+.archive summary::-webkit-details-marker { display: none; }
+.archive summary::before {
+  content: "\25B8"; /* triangle */
+  position: absolute;
+  left: 0.35em;
+  top: 0.55em;
+  color: #9aa4ae;
+  transition: transform 0.15s;
+}
+.archive details[open] summary::before {
+  transform: rotate(90deg);
+}
+.archive summary:hover { color: #0067b8; }
+.archive summary code {
+  background: #eef2f7;
+  color: #3a6ea5;
+  font-size: 0.78em;
+  font-weight: 600;
+  padding: 0.12em 0.5em;
+  border-radius: 4px;
+  margin-right: 0.45em;
+  vertical-align: middle;
+}
+.archive summary em {
+  font-style: normal;
+  background: #fff4e0;
+  color: #a8620a;
+  font-size: 0.78em;
+  padding: 0.12em 0.5em;
+  border-radius: 4px;
+  margin-left: 0.3em;
+  vertical-align: middle;
+}
+
+/* Dark theme (site applies data-theme="dark" on <html>) */
+html[data-theme="dark"] .archive details {
+  background: #3f3f3f;
+  border-color: #5a5a5a;
+}
+html[data-theme="dark"] .archive details[open] {
+  background: #4a4a4a;
+  border-color: #6b6b6b;
+}
+html[data-theme="dark"] .archive summary {
+  color: #f2f2f2;
+}
+html[data-theme="dark"] .archive summary::before {
+  color: #aab4be;
+}
+html[data-theme="dark"] .archive summary:hover {
+  color: #4db8e0;
+}
+html[data-theme="dark"] .archive summary code {
+  background: #2f4a63;
+  color: #bcd8f0;
+}
+html[data-theme="dark"] .archive summary em {
+  background: #5a4520;
+  color: #ffcf8a;
+}
+</style>
+
+**Work Projects**
 ----
 
-**Career History 1.** 주식회사 이도 - 경희대학교 국제캠퍼스 제2기숙사 조교 (IDO Co., Ltd. - Dormitory Assistant at KHU Global Campus)
+**IDO Co., Ltd. — Dormitory Management Assistant, KHU Global Campus (주식회사 이도, 경희대학교 국제캠퍼스 제2기숙사)**
 - `Address:` Kyung Hee University Global Campus, 2nd Dormitory, Yongin, Gyeonggi-do
 - `Period:` 2025.02 ~ Present
 - `Role:` Dormitory Management Assistant (Administrative & Technical Operations)
 
 <details>
-<summary><strong>Task A. Dormitory Customized Chatbot Development</strong></summary>
+<summary><strong><code>2025–Present</code> Dormitory Chatbot — RAG Q&A assistant for staff & onboarding</strong></summary>
 <div markdown="1">
 
 - `Role:` Developer
@@ -31,68 +113,15 @@ redirect_from:
 </div>
 </details>
 
-<details>
-<summary><strong>Task B. Excel-based Workflow Automation</strong></summary>
-<div markdown="1">
-
-- `Role:` Process Optimizer
-- `Tech Stack:` Microsoft Excel, VBA, Advanced Formulas
-- `Contents:` <br/>
-1. Streamlined work schedule creation through automated Excel formula systems. <br/>
-2. Optimized resident management and check-in/check-out administration processes. <br/>
-3. Significantly reduced manual data entry time and minimized human errors in administrative tasks. <br/>
-
-</div>
-</details>
-
-<details>
-<summary><strong>Task C. Security & Monitoring (Life Guidance & Safety Management)</strong></summary>
-<div markdown="1">
-
-- `Role:` Safety Monitor
-- `Contents:` <br/>
-1. Real-time monitoring to maintain system Normal State and detect Anomalies. <br/>
-2. Immediate response protocols for safety incidents and emergency situations. <br/>
-3. Regular patrol and surveillance operations to ensure resident safety and facility security. <br/>
-
-</div>
-</details>
-
-<details>
-<summary><strong>Task D. Data & Resource Management (Check-in/out & Facility Administration)</strong></summary>
-<div markdown="1">
-
-- `Role:` Data & Infrastructure Manager
-- `Contents:` <br/>
-1. Large-scale user data refinement including room assignments and equipment distribution. <br/>
-2. Hardware (facility) infrastructure optimization and maintenance management. <br/>
-3. Systematic resource allocation and inventory tracking for dormitory operations. <br/>
-
-</div>
-</details>
-
-<details>
-<summary><strong>Task E. Exception Handling (Complaint Resolution & Conflict Mediation)</strong></summary>
-<div markdown="1">
-
-- `Role:` Problem Solver & Mediator
-- `Contents:` <br/>
-1. Resolution of unpredictable Edge Cases that cannot be addressed by standard procedures. <br/>
-2. Mediation of interpersonal conflicts and coordination between residents and administration. <br/>
-3. Creative problem-solving for exceptional situations requiring case-by-case judgment. <br/>
-
-</div>
-</details>
-
 <br/>
 
-**Career History 2.** [이수파트너스 AI 개발자 및 PM (Esu Partners - AI Developer & Project Manager)](https://esupartners.com/)
+**[Esu Partners — Lead AI Developer & Project Manager (이수파트너스)](https://esupartners.com/)**
 - `Address:` 6th floor, 47 Gwangjang-ro 2beon-gil, Sasang-gu, Busan
 - `Period:` 2023.07 ~ 2024.06 (1 Year)
 - `Role:` Lead AI Developer & Project Manager (Healthcare/Platform)
 
 <details>
-<summary><strong>Project A. Kinicare: AI-based Personalized Nutrition for Cancer Patients</strong></summary>
+<summary><strong><code>2023–2024</code> Kinicare — personalized cancer-patient nutrition app (10K+ downloads)</strong></summary>
 <div markdown="1">
 
 - `Link:` [Google Play Store](https://play.google.com/store/apps/details?id=com.utinfra.jihun.kinicare&hl=ko&pli=1)
@@ -111,7 +140,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>Project B. Mukkebi: National Public Delivery Platform</strong></summary>
+<summary><strong><code>2023–2024</code> Mukkebi — national public delivery platform (1.75M downloads, PM)</strong></summary>
 <div markdown="1">
 
 - `Link:` [Google Play Store](https://play.google.com/store/apps/details?id=mukkebi.user.app.android)
@@ -130,7 +159,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>Project C. Cocodrone: 3D Drone Simulation for Gaya Historical Exploration</strong></summary>
+<summary><strong><code>2023–2024</code> Cocodrone — 3D drone-simulation edutech (Unity)</strong></summary>
 <div markdown="1">
 
 - `Link:` [Cocodrone Official](http://cocodrone.co.kr/kr/sub3_1.html?pa_id=sub3_1&code=30)
@@ -145,7 +174,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>Project D. ODDS: Interactive Screen Futsal System</strong></summary>
+<summary><strong><code>2023–2024</code> ODDS — interactive screen-futsal system (Unity)</strong></summary>
 <div markdown="1">
 
 - `Role:` Software Architect & Core Engine Developer
@@ -159,7 +188,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>Project E. IDCO: Nationwide Land Zone Assignment & Construction Management Platform</strong></summary>
+<summary><strong><code>2023–2024</code> IDCO — nationwide GIS construction-zone platform</strong></summary>
 <div markdown="1">
 
 - `Role:` Backend Developer & GIS System Architect
@@ -178,7 +207,7 @@ redirect_from:
 ----
 
 <details>
-<summary><strong><code>2025</code> CGAFuzz: Curriculum-Guided Adaptive Fuzzing Framework</strong> 🏆 <em>Excellence Prize, KRW 2,000,000</em></summary>
+<summary><strong><code>2025</code> CGAFuzz — curriculum-guided adaptive fuzzing (AFL++)</strong> 🏆 <em>Excellence Prize, KRW 2,000,000</em></summary>
 <div markdown="1">
 
 - `Link:` [GitHub](https://github.com/HyeonjongJang/CGAFuzz)
@@ -196,7 +225,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong><code>2025</code> RAG-FSR: Food Science Research Journal Classification Language Model</strong> 🏆 <em>Top Excellence Prize, KRW 500,000</em></summary>
+<summary><strong><code>2025</code> RAG-FSR — RAG language model for food-science journal classification</strong> 🏆 <em>Top Excellence Prize, KRW 500,000</em></summary>
 <div markdown="1">
 
 - `Role:` Team Leader
@@ -213,7 +242,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong><code>2024–Present</code> KyungHee-Chatbot: RAG-based University Regulations Virtual Assistant</strong></summary>
+<summary><strong><code>2024–Present</code> KyungHee-Chatbot — RAG assistant for university regulations</strong></summary>
 <div markdown="1">
 
 - `Link:` [GitHub](https://github.com/HyeonjongJang/KyungHee-Chatbot)
@@ -231,7 +260,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong><code>2024</code> Convex: Seoul Parking Lot Assignment Optimization System</strong></summary>
+<summary><strong><code>2024</code> Convex — Seoul parking assignment via convex optimization</strong></summary>
 <div markdown="1">
 
 - `Link:` [GitHub](https://github.com/HyeonjongJang/Convex)
@@ -249,7 +278,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong><code>2024</code> Google Image Scraping for Food Menu Dataset</strong></summary>
+<summary><strong><code>2024</code> Google Image Scraping — food-image dataset crawler (Selenium)</strong></summary>
 <div markdown="1">
 
 - `Link:` [GitHub](https://github.com/HyeonjongJang/Crawling)
@@ -265,7 +294,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong><code>2023–2024</code> Fseg-app: Food Detection, Segmentation, and Nutrition Calculation</strong></summary>
+<summary><strong><code>2023–2024</code> Fseg-app — food detection, segmentation & nutrition (YOLOv5, SAM)</strong></summary>
 <div markdown="1">
 
 - `Link:` [GitHub](https://github.com/Esupartners/Fseg-app)
@@ -283,23 +312,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong><code>2022</code> VegeChecker: Barcode-based Food Ingredient Analysis App</strong></summary>
-<div markdown="1">
-
-- `Link:` [GitHub](https://github.com/HyeonjongJang/vegechecker)
-- `Role:` Team Member
-- `Period:` Dongseo University Sogaesil3 Project
-- `Tech Stack:` Java, Android SDK, Barcode Scanner API
-- `Contents:` <br/>
-1. Developed an Android application that analyzes food ingredients through barcode recognition. <br/>
-2. Implemented barcode scanning functionality to retrieve product information automatically. <br/>
-3. Designed user-friendly interface for quick and convenient food ingredient checking. <br/>
-
-</div>
-</details>
-
-<details>
-<summary><strong><code>2023</code> SWATTER: Deep Learning-based Real-time UAV Detection</strong></summary>
+<summary><strong><code>2023</code> SWATTER — acoustic UAV detection on-device (TensorFlow Lite)</strong></summary>
 <div markdown="1">
 
 - `Link:` [GitHub](https://github.com/K-SW-SWATTER/KSW-Purdue)
@@ -316,16 +329,33 @@ redirect_from:
 </div>
 </details>
 
+<details>
+<summary><strong><code>2022</code> VegeChecker — barcode food-ingredient analysis (Android)</strong></summary>
+<div markdown="1">
+
+- `Link:` [GitHub](https://github.com/HyeonjongJang/vegechecker)
+- `Role:` Team Member
+- `Period:` Dongseo University Sogaesil3 Project
+- `Tech Stack:` Java, Android SDK, Barcode Scanner API
+- `Contents:` <br/>
+1. Developed an Android application that analyzes food ingredients through barcode recognition. <br/>
+2. Implemented barcode scanning functionality to retrieve product information automatically. <br/>
+3. Designed user-friendly interface for quick and convenient food ingredient checking. <br/>
+
+</div>
+</details>
+
 <br/>
 
-**Programs**
+**Global Programs**
 ----
 
 <details>
-<summary><strong><code>2023</code> Indonesia Creativity Station (Global Engineering Volunteer)</strong></summary>
+<summary><strong><code>2023</code> Indonesia Creativity Station — smart-farm DX capstone, Bandung</strong></summary>
 <div markdown="1">
 
 - `Link:` [PNU News](https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mcode=&mCode=MN114&searchID=title&searchKeyword=%EC%B0%BD%EC%9D%98%EC%B6%A9%EC%A0%84%EC%86%8C&mgr_seq=16&mode=view&mgr_seq=16&board_seq=1491753)
+- `Role:` Global Engineering Volunteer
 - `Partner organizations:` Pusan National University (PNU), Dongseo University, Telkom University (Indonesia)
 - `Period:` 2023.08 ~ 2023.08 (12 days)
 - `Contents:` <br/>
@@ -338,7 +368,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong><code>2022–2023</code> K-SW Square Winter Program (Purdue University, USA)</strong></summary>
+<summary><strong><code>2022–2023</code> K-SW Square Winter Program — global SW capstone, Purdue University (USA)</strong></summary>
 <div markdown="1">
 
 - `Link:` [Dongseo University](https://uni.dongseo.ac.kr/sw/?pCode=MN1000014&mode=view&idx=1534)
@@ -354,7 +384,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong><code>2022</code> Asia Summer Program (Josai International University, Japan)</strong></summary>
+<summary><strong><code>2022</code> Asia Summer Program — multinational academic exchange, Josai Int'l University (Japan)</strong></summary>
 <div markdown="1">
 
 - `Link:` [Dongseo University](https://uni.dongseo.ac.kr/iec/?pCode=MN5000027&mode=view&idx=336&fbclid=IwAR1sNIK9kkcRbxH8uwcrtCgTi4sLZsbbzdrEnpvoTJVi-QCy0xhyPQHt79A)
@@ -370,7 +400,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong><code>2022</code> Global SW Education Program (University of the Cordilleras, Philippines)</strong></summary>
+<summary><strong><code>2022</code> Global SW Education Program — IT English intensive, Univ. of the Cordilleras (Philippines)</strong></summary>
 <div markdown="1">
 
 - `Partner organizations:` University of the Cordilleras (UC), Baguio, Philippines
@@ -385,7 +415,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong><code>2019</code> Malaysia UTAR Korean Culture Experience Training Program</strong></summary>
+<summary><strong><code>2019</code> UTAR Korean Culture Experience Program — interpretation & cultural exchange, Malaysia</strong></summary>
 <div markdown="1">
 
 - `Link:` [UPM Sarawak](https://sarawak.upm.edu.my/content/south_korea_dongseo_universitys_cultural_exchange_programs-49875?L=bm)
@@ -400,7 +430,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong><code>2019</code> Dongseo Global English Program</strong> 🏆 <em>Grand Award, KRW 200,000</em></summary>
+<summary><strong><code>2019</code> Dongseo Global English Program — one-year intensive English track</strong> 🏆 <em>Grand Award, KRW 200,000</em></summary>
 <div markdown="1">
 
 - `Link:` [UNN News](https://news.unn.net/news/articleView.html?idxno=208379)
