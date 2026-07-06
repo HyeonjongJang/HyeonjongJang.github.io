@@ -20,11 +20,6 @@ citation: '<strong>Jang, H.</strong>, & Kim, Y*. (2025). &quot;RAG 기반 대학
 
 <br/>
 
-# Presentation
-<iframe src="/files/presentation2.pdf#toolbar=0&navpanes=0&scrollbar=0" width="800" height="450" style="display: block; margin: auto; border: none;"></iframe>
-
-<br/>
-
 # Key Results
 
 | Metric | Before | After | Improvement |
