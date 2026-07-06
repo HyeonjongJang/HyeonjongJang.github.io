@@ -26,8 +26,8 @@ Research Experiences
 
 Work Experiences
 ======
-* `Feb.2025 - Present`, Dormitory Management Assistant, IDO Co., Ltd. (경희대학교 국제캠퍼스 제2기숙사), Yongin, Korea
 * `Jul.2023 - Jun.2024`, AI Developer & Project Manager, [Esu Partners](https://esupartners.com/), Busan, Korea
+* `Feb.2025 - Present`, Dormitory Management Assistant, IDO Co., Ltd. (경희대학교 국제캠퍼스 제2기숙사), Yongin, Korea
 
 <br/>
 
@@ -44,7 +44,6 @@ Awards & Honors
 * Awards
   * `Oct.2025`, 🥉[Excellence Prize from Chairperson of the IT Platform Safety Research Group](/images/AI를_활용한_취약점_발굴_시스템_공모전_상장_ver01.jpg), 2025 AI-Powered Vulnerability Discovery System Competition, **(KRW 2,000,000)**
   * `Sep.2025`, 🥈[Top Excellence Prize from President of Korea Food Research Institute (KFRI)](/images/한국식품연구원_상장1.jpg), 2025 Korea Food Research Institute Food Data Analysis and Utilization Competition (Data Analysis Sector), **(KRW 500,000)**
-  * `Aug.2025`, 🏆[Outstanding Paper Award at the Korea Data Mining Society](/images/Best_Paper_Award_2025_Summer_KDMS.png), 2025 Summer Conference of the Korea Data Mining Society (KDMS)
   * `Dec.2019`, 🥇[Grand Award from President of Dongseo University](/images/DGEP.png), 2019 Dongseo Global English Program Speech Contest, **(KRW 200,000)**
 
 * Honors
