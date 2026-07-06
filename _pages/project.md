@@ -283,7 +283,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>VegeChecker: Barcode-based Food Ingredient Analysis App</strong></summary>
+<summary><strong><code>2022</code> VegeChecker: Barcode-based Food Ingredient Analysis App</strong></summary>
 <div markdown="1">
 
 - `Link:` [GitHub](https://github.com/HyeonjongJang/vegechecker)
