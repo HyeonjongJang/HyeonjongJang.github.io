@@ -18,7 +18,7 @@ redirect_from:
 - `Role:` Dormitory Management Assistant (Administrative & Technical Operations)
 
 <details>
-<summary><strong>🤖 Task A. Dormitory Customized Chatbot Development</strong></summary>
+<summary><strong>Task A. Dormitory Customized Chatbot Development</strong></summary>
 <div markdown="1">
 
 - `Role:` Developer
@@ -32,7 +32,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>📊 Task B. Excel-based Workflow Automation</strong></summary>
+<summary><strong>Task B. Excel-based Workflow Automation</strong></summary>
 <div markdown="1">
 
 - `Role:` Process Optimizer
@@ -46,7 +46,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>🔒 Task C. Security & Monitoring (Life Guidance & Safety Management)</strong></summary>
+<summary><strong>Task C. Security & Monitoring (Life Guidance & Safety Management)</strong></summary>
 <div markdown="1">
 
 - `Role:` Safety Monitor
@@ -59,7 +59,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>🗄️ Task D. Data & Resource Management (Check-in/out & Facility Administration)</strong></summary>
+<summary><strong>Task D. Data & Resource Management (Check-in/out & Facility Administration)</strong></summary>
 <div markdown="1">
 
 - `Role:` Data & Infrastructure Manager
@@ -72,7 +72,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>⚠️ Task E. Exception Handling (Complaint Resolution & Conflict Mediation)</strong></summary>
+<summary><strong>Task E. Exception Handling (Complaint Resolution & Conflict Mediation)</strong></summary>
 <div markdown="1">
 
 - `Role:` Problem Solver & Mediator
@@ -92,16 +92,16 @@ redirect_from:
 - `Role:` Lead AI Developer & Project Manager (Healthcare/Platform)
 
 <details>
-<summary><strong>📱 Project A. Kinicare: AI-based Personalized Nutrition for Cancer Patients</strong></summary>
+<summary><strong>Project A. Kinicare: AI-based Personalized Nutrition for Cancer Patients</strong></summary>
 <div markdown="1">
 
 - `Link:` [Google Play Store](https://play.google.com/store/apps/details?id=com.utinfra.jihun.kinicare&hl=ko&pli=1)
 - `Role:` Lead AI Developer
 - `Tech Stack:` Python, Machine Learning, Mobile App Development
 - `Achievements:` 
-  - 🏥 Joint research project with Severance Hospital (Sinchon)
-  - 📊 Built personalized nutrition algorithm based on 100,000+ cancer patient diet records
-  - 📱 10,000+ downloads on Google Play Store
+  - Joint research project with Severance Hospital (Sinchon)
+  - Built personalized nutrition algorithm based on 100,000+ cancer patient diet records
+  - 10,000+ downloads on Google Play Store
 - `Contents:` <br/>
 1. Developed and refined a personalized nutrition management algorithm tailored to cancer type and treatment stage. <br/>
 2. Built a real-time nutritional analysis and personalized feedback engine based on big data. <br/>
@@ -111,16 +111,16 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>🛵 Project B. Mukkebi: National Public Delivery Platform</strong></summary>
+<summary><strong>Project B. Mukkebi: National Public Delivery Platform</strong></summary>
 <div markdown="1">
 
 - `Link:` [Google Play Store](https://play.google.com/store/apps/details?id=mukkebi.user.app.android)
 - `Role:` Project Manager
 - `Tech Stack:` Mobile App Development, Backend Systems, Payment Integration
 - `Achievements:` 
-  - 📈 1.75 million cumulative downloads / 1 million+ on Google Play Store
-  - 🏆 Largest regional coverage nationwide (Seoul, Gyeongbuk, Jeonnam, etc.)
-  - 📊 ~8.6% market share (as of 2025) in public delivery sector
+  - 1.75 million cumulative downloads / 1 million+ on Google Play Store
+  - Largest regional coverage nationwide (Seoul, Gyeongbuk, Jeonnam, etc.)
+  - ~8.6% market share (as of 2025) in public delivery sector
 - `Contents:` <br/>
 1. Oversaw the entire product roadmap and development lifecycle as PM. <br/>
 2. Achieved service stability and enhanced functionality in a high-traffic environment. <br/>
@@ -130,7 +130,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>🎮 Project C. Cocodrone: 3D Drone Simulation for Gaya Historical Exploration</strong></summary>
+<summary><strong>Project C. Cocodrone: 3D Drone Simulation for Gaya Historical Exploration</strong></summary>
 <div markdown="1">
 
 - `Link:` [Cocodrone Official](http://cocodrone.co.kr/kr/sub3_1.html?pa_id=sub3_1&code=30)
@@ -145,7 +145,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>⚽ Project D. ODDS: Interactive Screen Futsal System</strong></summary>
+<summary><strong>Project D. ODDS: Interactive Screen Futsal System</strong></summary>
 <div markdown="1">
 
 - `Role:` Software Architect & Core Engine Developer
@@ -159,7 +159,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>🗺️ Project E. IDCO: Nationwide Land Zone Assignment & Construction Management Platform</strong></summary>
+<summary><strong>Project E. IDCO: Nationwide Land Zone Assignment & Construction Management Platform</strong></summary>
 <div markdown="1">
 
 - `Role:` Backend Developer & GIS System Architect
@@ -178,14 +178,14 @@ redirect_from:
 ----
 
 <details>
-<summary><strong>🔒 Project 8. CGAFuzz: Curriculum-Guided Adaptive Fuzzing Framework</strong> 🏆 <em>Excellence Prize, KRW 2,000,000</em></summary>
+<summary><strong><code>2025</code> CGAFuzz: Curriculum-Guided Adaptive Fuzzing Framework</strong> 🏆 <em>Excellence Prize, KRW 2,000,000</em></summary>
 <div markdown="1">
 
 - `Link:` [GitHub](https://github.com/HyeonjongJang/CGAFuzz)
 - `Role:` Team Leader
 - `Period:` 2025 AI-Powered Vulnerability Discovery System Competition, 2025.09 ~ 2025.10
 - `Tech Stack:` AFL++, Curriculum Learning, EMA-based Adaptive Mutation, LLM-powered Seed Generation
-- 🏆`Prize:` [Excellence Prize](/images/AI를_활용한_취약점_발굴_시스템_공모전_상장_ver01.jpg), Chairperson of the IT Platform Safety Research Group, <strong>KRW 2,000,000</strong>
+- `Prize:` [Excellence Prize](/images/AI를_활용한_취약점_발굴_시스템_공모전_상장_ver01.jpg), Chairperson of the IT Platform Safety Research Group, <strong>KRW 2,000,000</strong>
 - `Contents:` <br/>
 1. Designed a three-phase progression strategy based on JSON validation success rates using Parse-Rate Driven Curriculum Learning. <br/>
 2. Proposed EMA-Based Adaptive Mutation, a lightweight and real-time operator scheduling mechanism that learns mutations capable of discovering new paths. <br/>
@@ -196,13 +196,13 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>🍽️ Project 7. RAG-FSR: Food Science Research Journal Classification Language Model</strong> 🏆 <em>Top Excellence Prize, KRW 500,000</em></summary>
+<summary><strong><code>2025</code> RAG-FSR: Food Science Research Journal Classification Language Model</strong> 🏆 <em>Top Excellence Prize, KRW 500,000</em></summary>
 <div markdown="1">
 
 - `Role:` Team Leader
 - `Period:` 2025 Korea Food Research Institute Food Data Analysis and Utilization Competition, 2025.06 ~ 2025.07
 - `Tech Stack:` RAG (Retrieval-Augmented Generation), NLP, LLM, Python
-- 🏆`Prize:` [Top Excellence Prize](/images/한국식품연구원_상장1.jpg), President of Korea Food Research Institute (KFRI), <strong>KRW 500,000</strong>
+- `Prize:` [Top Excellence Prize](/images/한국식품연구원_상장1.jpg), President of Korea Food Research Institute (KFRI), <strong>KRW 500,000</strong>
 - `Contents:` <br/>
 1. Addressed limitations of existing keyword-based search systems for rapidly increasing academic data in science and technology. <br/>
 2. Proposed and implemented RAG-FSR, a language model specialized for the food research domain utilizing RAG technology. <br/>
@@ -213,7 +213,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>🤖 Project 6. KyungHee-Chatbot: RAG-based University Regulations Virtual Assistant</strong></summary>
+<summary><strong><code>2024–Present</code> KyungHee-Chatbot: RAG-based University Regulations Virtual Assistant</strong></summary>
 <div markdown="1">
 
 - `Link:` [GitHub](https://github.com/HyeonjongJang/KyungHee-Chatbot)
@@ -231,7 +231,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>🚗 Project 5. Convex: Seoul Parking Lot Assignment Optimization System</strong></summary>
+<summary><strong><code>2024</code> Convex: Seoul Parking Lot Assignment Optimization System</strong></summary>
 <div markdown="1">
 
 - `Link:` [GitHub](https://github.com/HyeonjongJang/Convex)
@@ -249,7 +249,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>🖼️ Project 4. Google Image Scraping for Food Menu Dataset</strong></summary>
+<summary><strong><code>2024</code> Google Image Scraping for Food Menu Dataset</strong></summary>
 <div markdown="1">
 
 - `Link:` [GitHub](https://github.com/HyeonjongJang/Crawling)
@@ -265,7 +265,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>🍔 Project 3. Fseg-app: Food Detection, Segmentation, and Nutrition Calculation</strong></summary>
+<summary><strong><code>2023–2024</code> Fseg-app: Food Detection, Segmentation, and Nutrition Calculation</strong></summary>
 <div markdown="1">
 
 - `Link:` [GitHub](https://github.com/Esupartners/Fseg-app)
@@ -283,7 +283,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>📱 Project 2. VegeChecker: Barcode-based Food Ingredient Analysis App</strong></summary>
+<summary><strong>VegeChecker: Barcode-based Food Ingredient Analysis App</strong></summary>
 <div markdown="1">
 
 - `Link:` [GitHub](https://github.com/HyeonjongJang/vegechecker)
@@ -299,7 +299,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>🚁 Project 1. SWATTER: Deep Learning-based Real-time UAV Detection</strong></summary>
+<summary><strong><code>2023</code> SWATTER: Deep Learning-based Real-time UAV Detection</strong></summary>
 <div markdown="1">
 
 - `Link:` [GitHub](https://github.com/K-SW-SWATTER/KSW-Purdue)
@@ -322,7 +322,7 @@ redirect_from:
 ----
 
 <details>
-<summary><strong>🌏 Program 6. 2023 Indonesia Creativity Station (Global Engineering Volunteer)</strong></summary>
+<summary><strong><code>2023</code> Indonesia Creativity Station (Global Engineering Volunteer)</strong></summary>
 <div markdown="1">
 
 - `Link:` [PNU News](https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mcode=&mCode=MN114&searchID=title&searchKeyword=%EC%B0%BD%EC%9D%98%EC%B6%A9%EC%A0%84%EC%86%8C&mgr_seq=16&mode=view&mgr_seq=16&board_seq=1491753)
@@ -338,7 +338,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>🇺🇸 Program 5. 2022 K-SW Square Winter Program (Purdue University, USA)</strong></summary>
+<summary><strong><code>2022–2023</code> K-SW Square Winter Program (Purdue University, USA)</strong></summary>
 <div markdown="1">
 
 - `Link:` [Dongseo University](https://uni.dongseo.ac.kr/sw/?pCode=MN1000014&mode=view&idx=1534)
@@ -354,7 +354,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>🇯🇵 Program 4. 2022 Asia Summer Program (Josai International University, Japan)</strong></summary>
+<summary><strong><code>2022</code> Asia Summer Program (Josai International University, Japan)</strong></summary>
 <div markdown="1">
 
 - `Link:` [Dongseo University](https://uni.dongseo.ac.kr/iec/?pCode=MN5000027&mode=view&idx=336&fbclid=IwAR1sNIK9kkcRbxH8uwcrtCgTi4sLZsbbzdrEnpvoTJVi-QCy0xhyPQHt79A)
@@ -370,7 +370,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>🇵🇭 Program 3. 2022 Global SW Education Program (University of the Cordilleras, Philippines)</strong></summary>
+<summary><strong><code>2022</code> Global SW Education Program (University of the Cordilleras, Philippines)</strong></summary>
 <div markdown="1">
 
 - `Partner organizations:` University of the Cordilleras (UC), Baguio, Philippines
@@ -385,7 +385,7 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>🇲🇾 Program 2. Malaysia UTAR Korean Culture Experience Training Program</strong></summary>
+<summary><strong><code>2019</code> Malaysia UTAR Korean Culture Experience Training Program</strong></summary>
 <div markdown="1">
 
 - `Link:` [UPM Sarawak](https://sarawak.upm.edu.my/content/south_korea_dongseo_universitys_cultural_exchange_programs-49875?L=bm)
@@ -400,12 +400,12 @@ redirect_from:
 </details>
 
 <details>
-<summary><strong>🎤 Program 1. 2019 Dongseo Global English Program</strong> 🏆 <em>Grand Award, KRW 200,000</em></summary>
+<summary><strong><code>2019</code> Dongseo Global English Program</strong> 🏆 <em>Grand Award, KRW 200,000</em></summary>
 <div markdown="1">
 
 - `Link:` [UNN News](https://news.unn.net/news/articleView.html?idxno=208379)
 - `Period:` 2019.03 ~ 2019.12
-- 🏆`Prize:` [Grand Award](/images/DGEP.png), Dongseo University President's Award in a speech contest recognizing one-year achievements, <strong>KRW 200,000</strong>
+- `Prize:` [Grand Award](/images/DGEP.png), Dongseo University President's Award in a speech contest recognizing one-year achievements, <strong>KRW 200,000</strong>
 - `Contents:` <br/>
 1. Selected as a new student to cultivate talented individuals with both English and specialized skills through intensive English instruction. <br/>
 2. Completed a total of 18 credits per week: Morning English classes (9 credits), Afternoon major and liberal arts classes (up to 9 credits). <br/>
