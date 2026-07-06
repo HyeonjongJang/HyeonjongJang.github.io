@@ -27,7 +27,8 @@ Research Experiences
 Work Experiences
 ======
 * `Jul.2023 - Jun.2024`, AI Developer & Project Manager, [Esu Partners](https://esupartners.com/), Busan, Korea
-* `Feb.2025 - Present`, Dormitory Management Assistant, IDO Co., Ltd. (경희대학교 국제캠퍼스 제2기숙사), Yongin, Korea
+* `Mar.2026 - Present`, Course Support Assistant (English/Japanese), Humanitas College, Kyung Hee University, Yongin, Korea
+* `Feb.2025 - Feb.2026`, Dormitory Management Assistant, IDO Co., Ltd. (경희대학교 국제캠퍼스 제2기숙사), Yongin, Korea
 
 <br/>
 

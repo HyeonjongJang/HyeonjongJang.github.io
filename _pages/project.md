@@ -94,13 +94,48 @@ html[data-theme="dark"] .archive summary em {
 **Work Projects**
 ----
 
+**Kyung Hee University — Course Support Assistant (English/Japanese), Humanitas College, Global Campus (경희대학교 국제캠퍼스 후마니타스칼리지 조교)**
+- `Address:` Humanitas College, Kyung Hee University Global Campus, Yongin, Gyeonggi-do
+- `Period:` 2026.03 ~ Present
+- `Role:` Course Support Assistant — course-support office operations, English/Japanese assistance, computer-lab & server administration, and planning/operation of faculty training, engineer certification exams, and the design-skills competition
+
+<details>
+<summary><strong><code>2026–Present</code> TA Scheduling System — first-come-first-served slot reservation (in production)</strong></summary>
+<div markdown="1">
+
+- `Role:` Developer
+- `Tech Stack:` Python, Web Application, Database
+- `Contents:` <br/>
+1. Built a ticket-style reservation system that automatically accepts teaching-assistant timetable sign-ups on a first-come-first-served basis. <br/>
+2. Replaced manual, error-prone scheduling with an automated intake flow, eliminating double-booking and cutting coordination overhead. <br/>
+3. Deployed to real operation and adopted by the Humanitas College course-support office. <br/>
+
+</div>
+</details>
+
+<details>
+<summary><strong><code>2026–Present</code> Humanitas Staff Chatbot — internal work-guidance assistant (in use)</strong></summary>
+<div markdown="1">
+
+- `Role:` Developer
+- `Tech Stack:` Python, LLM, RAG, Streamlit
+- `Contents:` <br/>
+1. Developed an internal chatbot for Humanitas College staff, covering onboarding and day-to-day administrative task guidance. <br/>
+2. Provided instant answers to routine work questions via a RAG-based knowledge base, reducing repetitive inquiries. <br/>
+3. Adopted by college staff in real operation. <br/>
+
+</div>
+</details>
+
+<br/>
+
 **IDO Co., Ltd. — Dormitory Management Assistant, KHU Global Campus (주식회사 이도, 경희대학교 국제캠퍼스 제2기숙사)**
 - `Address:` Kyung Hee University Global Campus, 2nd Dormitory, Yongin, Gyeonggi-do
-- `Period:` 2025.02 ~ Present
+- `Period:` 2025.02 ~ 2026.02
 - `Role:` Dormitory Management Assistant (Administrative & Technical Operations)
 
 <details>
-<summary><strong><code>2025–Present</code> Dormitory Chatbot — RAG Q&A assistant for staff & onboarding</strong></summary>
+<summary><strong><code>2025–2026</code> Dormitory Chatbot — RAG Q&A assistant for staff & onboarding</strong></summary>
 <div markdown="1">
 
 - `Role:` Developer
