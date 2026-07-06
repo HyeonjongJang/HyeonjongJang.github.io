@@ -32,6 +32,12 @@ Work Experiences
 
 <br/>
 
+Teaching Experience
+======
+* `Sep.2023 - Dec.2023`, SW Instructor (AI, Arduino Uno, etc.) — Volunteer, Bodum-it SW Outreach Volunteer Club, Busan Design High School, Busan, Korea
+
+<br/>
+
 Publications
 ======
   <ul>{% for post in site.publications reversed %}
@@ -45,6 +51,9 @@ Awards & Honors
 * Awards
   * `Oct.2025`, [Excellence Prize from Chairperson of the IT Platform Safety Research Group](/images/AI를_활용한_취약점_발굴_시스템_공모전_상장_ver01.jpg), 2025 AI-Powered Vulnerability Discovery System Competition, **(KRW 2,000,000)**
   * `Sep.2025`, [Top Excellence Prize from President of Korea Food Research Institute (KFRI)](/images/한국식품연구원_상장1.jpg), 2025 Korea Food Research Institute Food Data Analysis and Utilization Competition (Data Analysis Sector), **(KRW 500,000)**
+  * `Nov.2024`, [Encouragement Prize from Director of the SW-Centered University Project Group](/images/github-showcase-2024.jpg), 2024 GitHub Showcase Competition (AI·SW Convergence), Dongseo University, **(KRW 100,000)**
+  * `Nov.2024`, Encouragement Prize, 2024 "Show Me the Dongseo" AI Competition, Dongseo University, **(KRW 100,000)**
+  * `Sep.2024`, AI Research Festival — research write-up & presentation, Dongseo University, **(KRW 100,000)**
   * `Dec.2019`, [Grand Award from President of Dongseo University](/images/DGEP.png), 2019 Dongseo Global English Program Speech Contest, **(KRW 200,000)**
 
 * Honors
