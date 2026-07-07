@@ -59,8 +59,8 @@ Talks & Presentations
 
 News & Media
 ======
-* `Sep.2025`, [경희대학교 규정 조교 AI 에이전트 개발 (Kyung Hee University Webzine)](https://news.khu.ac.kr/news_kor/user/webzine/gType.do?wcId=3887) — featured as the lead developer of a university-regulation AI agent (Prof. Young-Hoon Kim's team, Dept. of Industrial & Management Systems Engineering)
-* `Sep.2025`, [제1회 공과대학 AI 위원회 성과 공유회 (Kyung Hee University)](https://give.khu.ac.kr/bbs/board.php?bo_table=Photos_05&wr_id=593) — featured for leading the university-regulation chatbot agent (40%+ faster regulation lookup in student testing)
+* `Sep.2025`, **University-regulation AI agent — KHU College of Engineering AI Committee.** Featured as the lead developer of the regulation chatbot agent (Prof. Young-Hoon Kim's team); reported 40%+ faster regulation lookup / 45% less staff processing time. Coverage: [경희대 웹진](https://news.khu.ac.kr/news_kor/user/webzine/gType.do?wcId=3887) · [경희대 소식](https://give.khu.ac.kr/bbs/board.php?bo_table=Photos_05&wr_id=593) · [총동문회보](https://www.khua.or.kr/bbs/board.php?bo_table=almamater&wr_id=2922) · [대학주보 (성과 교류회)](https://media.khu.ac.kr/bbs/board.php?bo_table=univJubo&wr_id=34897) · [대학주보 (AI 위원회 출범)](https://media.khu.ac.kr/bbs/board.php?bo_table=univJubo&wr_id=34823)
+* `Sep.2025`, **RAG-FSR at the Korea Food Research Institute (KFRI) Data Analysis & Utilization Competition** (team including Jang, H.). Coverage: [전자신문](https://www.etnews.com/20250903000276) · [헤럴드경제](https://biz.heraldcorp.com/article/10567071) · [식품저널](https://www.foodnews.co.kr/news/articleView.html?idxno=114889) · [푸드아이콘](https://www.foodicon.co.kr/news/articleView.html?idxno=30675) · [새전북신문](http://sjbnews.com/news/news.php?number=859219) · [농업환경뉴스](https://www.agemnews.co.kr/news/article.html?no=30731) · [한국식품연구원](https://www.kfri.re.kr/web/board/10/34846) · [소통24](https://sotong.go.kr/front/epilogue/epilogueRsltViewPage.do?bbs_id=af4ac91d0059491e815f2e4a85030511&searchkey=A&searchtxt=&miv_pageNo=2) · [보건뉴스](http://www.bokuennews.com/news/article.html?no=265295) · [NCN뉴스](http://www.ncnnews.kr/news/articleView.html?idxno=12762)
 
 <br/>
 

@@ -160,6 +160,7 @@ html[data-theme="dark"] .archive summary em {
 <div markdown="1">
 
 - `Link:` [Google Play Store](https://play.google.com/store/apps/details?id=com.utinfra.jihun.kinicare&hl=ko&pli=1)
+- `Press:` [ZDNet Korea — 2022 데이터스타즈: 유티인프라 데이터 기반 맞춤 영양관리 (Kinicare)](https://zdnet.co.kr/view/?no=20221213082605)
 - `Role:` Lead AI Developer
 - `Tech Stack:` Python, Machine Learning, Mobile App Development
 - `Achievements:` 
