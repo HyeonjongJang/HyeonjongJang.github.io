@@ -34,6 +34,10 @@ Work Experiences
 
 Teaching Experience
 ======
+* `Jul.2026 - Sep.2026`, SW·AI Instructor (Physical Computing & Data-based PBL) — FutureCanvas, Middle School SW·AI Convergence Project, Sejong, Korea
+* `Jul.2026`, SW·AI Instructor (Big Data) — FutureCanvas, Dujeong Middle School, Cheonan, Korea
+* `Jul.2026`, SW·AI Instructor — Ieumplus, Hallym Design High School, Korea
+* `Jul.2026`, SW·AI Instructor (AI Producing) — FutureCanvas, Onyang Girls' Middle School, Asan, Korea
 * `Sep.2023 - Dec.2023`, SW Instructor (AI, Arduino Uno, etc.) — Volunteer, Bodum-it SW Outreach Volunteer Club, Busan Design High School, Busan, Korea
 
 <br/>
