@@ -46,9 +46,24 @@ Publications
 
 <br/>
 
+Talks & Presentations
+======
+* `Nov.2025`, [Development of a Reinforcement Learning Algorithm for i-SMR Load Following](/images/ismr-presentation-2025.jpg), Energy Industry–Academia Cooperation Project Results Presentation, Korea Conference Center, Seoul, Korea
+* `Jul.2025`, [Guest Lecture & Demo — University Regulation Chatbot (KyungHee-Chatbot)](/images/khu-chatbot-lecture-2025.jpg), College of Engineering, Kyung Hee University, Yongin, Korea
+
+<br/>
+
+News & Media
+======
+* `Sep.2025`, [경희대학교 규정 조교 AI 에이전트 개발 (Kyung Hee University Webzine)](https://news.khu.ac.kr/news_kor/user/webzine/gType.do?wcId=3887) — featured as the lead developer of a university-regulation AI agent (Prof. Young-Hoon Kim's team, Dept. of Industrial & Management Systems Engineering)
+* `Sep.2025`, [제1회 공과대학 AI 위원회 성과 공유회 (Kyung Hee University)](https://give.khu.ac.kr/bbs/board.php?bo_table=Photos_05&wr_id=593) — featured for leading the university-regulation chatbot agent (40%+ faster regulation lookup in student testing)
+
+<br/>
+
 Awards & Honors
 ======
 * Awards
+  * `Jun.2026`, [Best Paper Award (Information Security & High-Reliability Computing)](/images/kiise-best-paper-2026.jpg), 2026 Korea Computer Congress (KCC), Korean Institute of Information Scientists and Engineers (KIISE) — *"Differential Utility of CmpLog by Mutator Structure in JSON Fuzzing: Semantic-Aware vs. Byte-level Mutation"* (with Jaejun Choi, Young-Hoon Kim)
   * `Oct.2025`, [Excellence Prize from Chairperson of the IT Platform Safety Research Group](/images/AI를_활용한_취약점_발굴_시스템_공모전_상장_ver01.jpg), 2025 AI-Powered Vulnerability Discovery System Competition, **(KRW 2,000,000)**
   * `Sep.2025`, [Top Excellence Prize from President of Korea Food Research Institute (KFRI)](/images/한국식품연구원_상장1.jpg), 2025 Korea Food Research Institute Food Data Analysis and Utilization Competition (Data Analysis Sector), **(KRW 500,000)**
   * `Nov.2024`, [Encouragement Prize from Director of the SW-Centered University Project Group](/images/github-showcase-2024.jpg), 2024 GitHub Showcase Competition (AI·SW Convergence), Dongseo University, **(KRW 100,000)**

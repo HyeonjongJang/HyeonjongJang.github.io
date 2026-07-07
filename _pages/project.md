@@ -242,7 +242,7 @@ html[data-theme="dark"] .archive summary em {
 ----
 
 <details>
-<summary><strong><code>2025</code> CGAFuzz — curriculum-guided adaptive fuzzing (AFL++)</strong> 🏆 <em>Excellence Prize, KRW 2,000,000</em></summary>
+<summary><strong><code>2025–2026</code> CGAFuzz — curriculum-guided adaptive fuzzing (AFL++)</strong> 🏆 <em>Excellence Prize</em> · 🏆 <em>Best Paper (KCC 2026)</em></summary>
 <div markdown="1">
 
 - `Link:` [GitHub](https://github.com/HyeonjongJang/CGAFuzz)
@@ -250,11 +250,13 @@ html[data-theme="dark"] .archive summary em {
 - `Period:` 2025 AI-Powered Vulnerability Discovery System Competition, 2025.09 ~ 2025.10
 - `Tech Stack:` AFL++, Curriculum Learning, EMA-based Adaptive Mutation, LLM-powered Seed Generation
 - `Prize:` [Excellence Prize](/images/AI를_활용한_취약점_발굴_시스템_공모전_상장_ver01.jpg), Chairperson of the IT Platform Safety Research Group, <strong>KRW 2,000,000</strong>
+- `Publication:` [Best Paper Award — 2026 Korea Computer Congress (KCC)](/publication/2026-06-25-paper-2), Korean Institute of Information Scientists and Engineers (KIISE)
 - `Contents:` <br/>
 1. Designed a three-phase progression strategy based on JSON validation success rates using Parse-Rate Driven Curriculum Learning. <br/>
 2. Proposed EMA-Based Adaptive Mutation, a lightweight and real-time operator scheduling mechanism that learns mutations capable of discovering new paths. <br/>
 3. Implemented Plateau Detection to automatically identify coverage stagnation and integrated optional LLM support to generate diverse initial seeds. <br/>
 4. Demonstrated superior performance in both code coverage (+4.03%) and execution speed (+6.50%) compared to standard AFL++. <br/>
+5. Conducted follow-up experiments analyzing the differential utility of CmpLog by mutator structure (Semantic-Aware vs. byte-level mutation), published as a Best Paper at KCC 2026. <br/>
 
 </div>
 </details>
@@ -272,6 +274,22 @@ html[data-theme="dark"] .archive summary em {
 2. Proposed and implemented RAG-FSR, a language model specialized for the food research domain utilizing RAG technology. <br/>
 3. Achieved accuracy of 0.960 in multi-keyword classification task; 4-9x better exact-match accuracy for abstract generation compared to baseline models. <br/>
 4. Empirically demonstrated effective mitigation of hallucination phenomenon in large language models. <br/>
+
+</div>
+</details>
+
+<details>
+<summary><strong><code>2025</code> i-SMR Load Following — reinforcement-learning operation optimization</strong></summary>
+<div markdown="1">
+
+- `Role:` Developer & Presenter
+- `Period:` 2025
+- `Tech Stack:` Reinforcement Learning, Python
+- `Publication:` "[P] 강화학습을 활용한 i-SMR 부하추종 운전 최적화 알고리즘 개발", 제3회 경희대학교 일반대학원 공동학술세미나 (2025)
+- `Note:` Source code is not publicly available.
+- `Contents:` <br/>
+1. Developed a reinforcement-learning algorithm to optimize load-following operation of an innovative Small Modular Reactor (i-SMR). <br/>
+2. Presented the results at the Energy Industry–Academia Cooperation Project results session (Nov 2025) and the 3rd KHU Graduate Joint Academic Seminar (Dec 2025). <br/>
 
 </div>
 </details>
