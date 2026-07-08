@@ -13,7 +13,7 @@ title                    : "Hyunjong Jang"
 title_separator          : "-"
 name                     : &name "Hyunjong Jang"
 description              : &description "Hyunjong Jang (장현종) — M.S. in AI at Kyung Hee University (AIMS Lab). LLM/RAG, software fuzzing, and i-SMR reinforcement learning. Best Paper Award, KCC 2026."
-url                      : https://HyeonjongJang.github.io/ # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
+url                      : https://HyeonjongJang.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "HyeonjongJang/HyeonjongJang.github.io"
 
