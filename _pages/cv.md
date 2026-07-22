@@ -67,6 +67,8 @@ News & Media
 Awards & Honors
 ======
 * Awards
+  * `Jul.2026`, Excellence Prize from Chair of the Engineering Education Innovation Council (공학교육혁신협의회장상), 2026 National Student Success Story Contest, National Centers for Innovative Engineering Education, **(KRW 300,000)**
+  * `Jul.2026`, [Encouragement Prize from Administrator of the Korea Meteorological Administration (기상청장상)](https://sotong.go.kr/front/epilogue/epilogueNewViewPage.do?menu_id=527&bbs_id=95fa3aaf174d4456adc4c3ce426f0bc0&pagetype=bbs&search_title_contents=%EB%8B%AC%EC%BD%A4%EA%B8%B0%ED%9B%84&miv_pageNo=1&date_range=all&date_range_cnddt=all), 7th KMA 달콤기후 (Sweet Climate) Contest, Korea Meteorological Administration, **(KRW 100,000)**
   * `Jun.2026`, [Best Paper Award (Information Security & High-Reliability Computing)](/images/kiise-best-paper-2026.jpg), 2026 Korea Computer Congress (KCC), Korean Institute of Information Scientists and Engineers (KIISE) — *"Differential Utility of CmpLog by Mutator Structure in JSON Fuzzing: Semantic-Aware vs. Byte-level Mutation"* (with Jaejun Choi, Young-Hoon Kim)
   * `Oct.2025`, [Excellence Prize from Chairperson of the IT Platform Safety Research Group](/images/AI를_활용한_취약점_발굴_시스템_공모전_상장_ver01.jpg), 2025 AI-Powered Vulnerability Discovery System Competition, **(KRW 2,000,000)**
   * `Sep.2025`, [Top Excellence Prize from President of Korea Food Research Institute (KFRI)](/images/한국식품연구원_상장1.jpg), 2025 Korea Food Research Institute Food Data Analysis and Utilization Competition (Data Analysis Sector), **(KRW 500,000)**
