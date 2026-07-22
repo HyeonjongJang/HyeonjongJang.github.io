@@ -12,7 +12,7 @@ redirect_from:
 Education
 ======
 * `2025.03 - Present`, M.S., Department of Artificial Intelligence, Kyung Hee University, Yongin, Korea
-* `2019.03 - 2025.02`, B.S., Department of Software, Dongseo University, Busan, Korea
+* `2019.03 - 2025.02`, B.S., Department of Software (Double Major: Department of Artificial Intelligence), Dongseo University, Busan, Korea
 
 <br/>
 
