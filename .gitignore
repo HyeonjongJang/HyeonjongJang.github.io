@@ -16,3 +16,7 @@ CLAUDE.md
 
 # WSL download metadata
 *:Zone.Identifier
+
+# Research Radar transient pipeline outputs
+_automation/work/
+__pycache__/
