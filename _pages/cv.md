@@ -122,4 +122,4 @@ Languages
 
 LICENSE AND CERTIFICATE
 ======
-* `Jul.2023`, SQLD (Structured Query Language Developer)
+* `Aug.2022`, SQLD (Structured Query Language Developer)
