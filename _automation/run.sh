@@ -48,17 +48,31 @@ fi
 SRC="$WORK/sources.json"
 DATE="$(python3 -c 'import json;print(json.load(open("work/sources.json"))["date"])')"
 
-echo "[2/5] generate (EN)"
-render_prompt prompts/generate.md "$SRC" > "$WORK/gen_prompt.txt"
-run_claude "$GEN_ARGS" "$WORK/gen_prompt.txt" > "$WORK/draft-en.md"
+echo "[2-3/5] generate + review (up to ${MAX_ATTEMPTS:=3} attempts)"
+passed=0
+for a in $(seq 1 "$MAX_ATTEMPTS"); do
+  echo "  attempt $a/$MAX_ATTEMPTS: generate (EN)"
+  render_prompt prompts/generate.md "$SRC" > "$WORK/gen_prompt.txt"
+  # On a retry, hand the writer the previous review's failures to fix.
+  if [ "$a" -gt 1 ] && [ -s "$WORK/review.txt" ]; then
+    { echo; echo "=== YOUR PREVIOUS DRAFT FAILED REVIEW — fix EACH point, then rewrite the whole post ==="
+      cat "$WORK/review.txt"; } >> "$WORK/gen_prompt.txt"
+  fi
+  run_claude "$GEN_ARGS" "$WORK/gen_prompt.txt" > "$WORK/draft-en.md"
 
-echo "[3/5] review"
-render_prompt prompts/review.md "$SRC" "$WORK/draft-en.md" > "$WORK/rev_prompt.txt"
-run_claude "$REVIEW_ARGS" "$WORK/rev_prompt.txt" | tee "$WORK/review.txt"
-if ! head -1 "$WORK/review.txt" | grep -q "VERDICT: PASS"; then
+  echo "  attempt $a/$MAX_ATTEMPTS: review"
+  render_prompt prompts/review.md "$SRC" "$WORK/draft-en.md" > "$WORK/rev_prompt.txt"
+  run_claude "$REVIEW_ARGS" "$WORK/rev_prompt.txt" | tee "$WORK/review.txt"
+  if head -1 "$WORK/review.txt" | grep -q "VERDICT: PASS"; then
+    passed=1; break
+  fi
+  echo "  attempt $a FAILED review."
   mkdir -p "$WORK/quarantine"
-  mv "$WORK/draft-en.md" "$WORK/quarantine/$DATE-FAILED.md"
-  echo "REVIEW FAILED — quarantined, not published. See $WORK/review.txt"
+  cp "$WORK/draft-en.md" "$WORK/quarantine/$DATE-FAILED-attempt$a.md"
+done
+
+if [ "$passed" != "1" ]; then
+  echo "REVIEW FAILED after $MAX_ATTEMPTS attempts — quarantined, not published. See $WORK/quarantine/"
   exit 0
 fi
 

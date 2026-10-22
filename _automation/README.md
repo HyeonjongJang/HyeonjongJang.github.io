@@ -24,8 +24,11 @@ own computer via cron), **not** on GitHub's cloud runners (they can't use your
 Max login). Hosting, fetching, and the title card are all free. No generative
 images. See the project chat notes for the cost rationale.
 
-> Heads up: the generate + review (+ KO translate) design is ~3 Claude Code runs
-> per post. Keep an eye on your Max weekly cap if you raise the post count.
+> Heads up on Max usage: a clean post is ~3 Claude Code runs (generate, review,
+> KO translate). A review FAIL re-generates with the reviewer's notes and
+> re-reviews, up to `MAX_ATTEMPTS` (default 3) before quarantining — so a bad day
+> can reach ~7 runs. Keep an eye on your Max weekly cap if you raise the post
+> count or `MAX_ATTEMPTS`.
 
 ## Setup
 
@@ -51,6 +54,9 @@ Overrides:
   The review is meant to run at a slightly **lower effort** than generation — it
   is already a focused checklist (see `prompts/review.md`), and if your CLI
   exposes an effort/thinking flag you can add it to `REVIEW_ARGS`.
+- `MAX_ATTEMPTS` (default `3`) — on a review FAIL, the writer regenerates with
+  the reviewer's notes and is re-reviewed, up to this many attempts before the
+  day is quarantined.
 - `KO` is **on** by design: each run writes an English post and a faithful Korean
   translation, and `/blog/` shows the English canonical with an in-post language
   toggle to the Korean version.
@@ -64,10 +70,11 @@ the top of that file.
 
 1. **fetch** → `work/sources.json` (exact URLs; the grounding file). A thin or
    empty day exits cleanly without publishing.
-2. **generate** → `work/draft-en.md`, written only from the sources.
-3. **review** → the reviewer verifies every claim against the sources
-   (STYLE_GUIDE §11). `VERDICT: FAIL` → the draft is moved to
-   `work/quarantine/` and **nothing is published**. No human gate; the gate is
+2. **generate → review (loop)** → the writer drafts only from the sources; the
+   reviewer verifies every claim against them (STYLE_GUIDE §11). On `VERDICT:
+   FAIL` the writer regenerates with the reviewer's notes and is re-reviewed,
+   up to `MAX_ATTEMPTS` times. If every attempt fails, the drafts go to
+   `work/quarantine/` and **nothing is published** — no human gate, the gate is
    automated.
 4. **publish** → EN + KO posts to `_posts/`, title card to `/images/radar/`,
    one commit, push. `/blog/` lists the EN canonical only (KO via in-post toggle).
