@@ -258,6 +258,24 @@ html[data-theme="dark"] .archive summary em {
 </details>
 
 <details>
+<summary><strong><code>2026</code> K-Beauty Truth — source-grounded RAG assistant for cosmetics animal-testing transparency</strong> 🏆 <em>Excellence Prize (AFI GIC Awards 2026)</em></summary>
+<div markdown="1">
+
+- `Role:` Presenter & Developer
+- `Period:` 2026 AFI GIC Awards (ODC26), ~ 2026.09
+- `Tech Stack:` RAG (Retrieval-Augmented Generation), LLM, Source Grounding
+- `Prize:` [Excellence Prize (우수상)](/images/afi-gic-award-2026.jpg), Animal Free Initiative (사단법인 애니멀프리이니셔티브)
+- `Contents:` <br/>
+1. Addressed the hallucination problem whereby general-purpose chatbots cannot reliably answer whether a cosmetic product involved animal testing (ChatGPT and Claude both returned "cannot verify"). <br/>
+2. Designed a source-grounded assistant that answers only within verified official data — cosmetics law (화장품법 제15조의2), MFDS notices, and official cruelty-free certifications — and presents the supporting source with every answer. <br/>
+3. Framed the system as consumer-facing information infrastructure for cruelty-free verification; awarded the Excellence Prize at the 2026 AFI GIC Awards. <br/>
+
+<iframe src="/files/k-beauty-truth-2026.pdf#toolbar=0&navpanes=0&scrollbar=0" width="800" height="450" style="display: block; margin: auto; border: none;"></iframe>
+
+</div>
+</details>
+
+<details>
 <summary><strong><code>2025–2026</code> CGAFuzz — curriculum-guided adaptive fuzzing (AFL++)</strong> 🏆 <em>Excellence Prize</em> · 🏆 <em>Best Paper (KCC 2026)</em></summary>
 <div markdown="1">
 
