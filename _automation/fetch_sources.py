@@ -20,8 +20,15 @@ from pathlib import Path
 
 N_REPOS = 2
 N_PAPERS = 1
-# arXiv categories aligned with the author's themes (LLM / MAPF / adaptive search).
-ARXIV_CATS = ["cs.AI", "cs.LG", "cs.RO"]
+POOL = 30  # candidates fetched before the LLM-lean ranking below trims to N.
+# Soft LLM preference (NOT a hard filter): items matching these float to the top,
+# but non-LLM items still appear when there aren't enough LLM ones — the author
+# is a researcher *and* a developer, so general dev/ML items are welcome too.
+LLM_KW = ["llm", "language model", "large language model", "gpt", "llama",
+          "transformer", "rag", "retrieval-augmented", "agent", "fine-tun",
+          "instruction", "chatbot", "prompt", "mixture-of-experts", "moe"]
+# arXiv categories: cs.CL (LLM / NLP home) first, plus general AI/ML.
+ARXIV_CATS = ["cs.CL", "cs.AI", "cs.LG"]
 UA = {"User-Agent": "research-radar/0.1 (personal digest; +https://hyeonjongjang.github.io)"}
 WORK = Path(__file__).parent / "work"
 
@@ -30,6 +37,11 @@ def _get(url: str, timeout: int = 20) -> str:
     req = urllib.request.Request(url, headers=UA)
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return r.read().decode("utf-8", "replace")
+
+
+def _llm_score(text: str) -> int:
+    t = text.lower()
+    return sum(1 for k in LLM_KW if k in t)
 
 
 def fetch_trending_repos(n: int) -> list[dict]:
@@ -53,9 +65,11 @@ def fetch_trending_repos(n: int) -> list[dict]:
             "language": lang.group(1).strip() if lang else "",
             "stars": stars.group(1).strip() if stars else "",
         })
-        if len(repos) >= n:
+        if len(repos) >= POOL:
             break
-    return repos
+    # Stable sort keeps trending order among equal scores; LLM-matching repos rise.
+    repos.sort(key=lambda r: _llm_score(r["name"] + " " + r["description"]), reverse=True)
+    return repos[:n]
 
 
 def fetch_recent_papers(n: int) -> list[dict]:
@@ -63,7 +77,7 @@ def fetch_recent_papers(n: int) -> list[dict]:
     cat = "+OR+".join(f"cat:{c}" for c in ARXIV_CATS)
     url = (
         "http://export.arxiv.org/api/query?"
-        f"search_query={cat}&sortBy=submittedDate&sortOrder=descending&max_results={n}"
+        f"search_query={cat}&sortBy=submittedDate&sortOrder=descending&max_results={POOL}"
     )
     feed = _get(url)
     ns = {"a": "http://www.w3.org/2005/Atom"}
@@ -78,7 +92,9 @@ def fetch_recent_papers(n: int) -> list[dict]:
             "abstract": " ".join(e.find("a:summary", ns).text.split()),
             "published": (e.find("a:published", ns).text or "")[:10],
         })
-    return papers
+    # LLM-matching papers rise; newest order preserved among equal scores.
+    papers.sort(key=lambda p: _llm_score(p["title"] + " " + p["abstract"]), reverse=True)
+    return papers[:n]
 
 
 def main() -> int:

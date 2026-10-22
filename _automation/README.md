@@ -42,9 +42,23 @@ cd _automation
 DRY_RUN=0 ./run.sh          # actually commit + push -> GitHub Pages deploys
 ```
 
-Overrides: `CLAUDE_BIN` (default `claude`), `CLAUDE_ARGS` (default `-p`).
-Scope (top-N repos/papers, arXiv categories) is set at the top of
-`fetch_sources.py`.
+Overrides:
+
+- `CLAUDE_BIN` (default `claude`).
+- `GEN_ARGS` / `REVIEW_ARGS` (both default `-p`) — the flags for the generate+
+  translate pass and the review pass. Both use the strong (default Max) model;
+  pin one explicitly with `--model` if you want (e.g. `GEN_ARGS="-p --model opus"`).
+  The review is meant to run at a slightly **lower effort** than generation — it
+  is already a focused checklist (see `prompts/review.md`), and if your CLI
+  exposes an effort/thinking flag you can add it to `REVIEW_ARGS`.
+- `KO` is **on** by design: each run writes an English post and a faithful Korean
+  translation, and `/blog/` shows the English canonical with an in-post language
+  toggle to the Korean version.
+
+Selection: `fetch_sources.py` has a **soft LLM preference** — LLM-related repos/
+papers float to the top, but general dev/ML items still appear. Tune `N_REPOS`,
+`N_PAPERS`, `POOL`, `LLM_KW`, and `ARXIV_CATS` (default `cs.CL, cs.AI, cs.LG`) at
+the top of that file.
 
 ## Flow / guarantees
 
@@ -66,7 +80,8 @@ Scope (top-N repos/papers, arXiv categories) is set at the top of
 
 ## Tuning points (by design, left open)
 
-- `fetch_sources.py`: selection logic, N_REPOS/N_PAPERS, sources, theme bias.
-- `claude -p` flags (`CLAUDE_ARGS`): permissions/output-format for your setup.
-- `render_card.py`: fonts/palette/layout, optional data chart.
-- Whether to keep KO auto-translation (drop it to halve Max usage).
+- `fetch_sources.py`: `N_REPOS`/`N_PAPERS`/`POOL`, `LLM_KW` soft preference,
+  `ARXIV_CATS`, or swap trending for topic search.
+- `GEN_ARGS` / `REVIEW_ARGS`: model pin and effort per pass (see Overrides).
+- `render_card.py`: fonts/palette/layout, optional data chart. For a Korean
+  title card, swap the font to a Hangul-capable TTF (Noto Sans KR / Pretendard).

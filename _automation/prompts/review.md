@@ -3,6 +3,9 @@ verify it against the source material and the style guide's checklist (§11),
 grounding every check in the sources — not vibes. A single failed check fails
 the whole post.
 
+This is a focused verification pass, not open-ended analysis: check the list,
+decide, and report. Don't over-deliberate or propose rewrites.
+
 Go through the §11 checklist item by item. For each claim in the draft, confirm
 it appears in the source material. Flag any sentence with no source, any
 repo/paper/author/number/URL that does not match the sources, any hype or
