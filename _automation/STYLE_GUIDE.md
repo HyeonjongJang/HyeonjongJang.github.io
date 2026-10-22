@@ -1,201 +1,194 @@
-# Research Radar — Editorial Style Guide
+# Research Radar — Deep-Dive Editorial Style Guide
 
-> The single source of truth for the automated blog pipeline. **Both** the
+> The single source of truth for the automated deep-dive pipeline. **Both** the
 > *writer* pass and the *reviewer* pass of Claude Code read this file on every
 > run. If a rule here conflicts with a model's instinct, this file wins.
-> Location: `_automation/` is ignored by Jekyll, so this file is never published.
+> `_automation/` is ignored by Jekyll, so this file is never published.
+
+Each post is **one paper, explained in depth** — background, the core idea in
+plain intuition, how the mechanism works step by step, the central math (every
+symbol explained), results, and honest limitations. Not a "what's new" blurb:
+a teaching walkthrough a grad student can learn the paper from without opening
+the PDF first.
 
 ---
 
 ## 1. Purpose, audience, positioning
 
-- **What this is:** *Research Radar* — a short, source-grounded digest of a few
-  notable AI/ML GitHub repositories and papers, each with a one-line human take.
-- **Who reads it:** researchers, graduate students, and hiring/admissions
-  committees. **Not** a general-traffic/SEO audience.
-- **Positioning:** a curated adjunct to a research portfolio centered on
-  automatic heuristic design with LLMs, multi-agent path finding (MAPF), and
-  adaptive search control. The blog must read as *a researcher's curated notes*,
-  never as a content farm. When in doubt, bias toward the author's own research
-  themes in selection and framing.
+- **What this is:** a careful, intuition-first explainer of a single notable
+  AI/ML paper, grounded in its **full text**.
+- **Who reads it:** researchers and graduate students; also the author's future
+  self. Not a general-traffic/SEO audience.
+- **Positioning:** a curated adjunct to a research portfolio centered on LLMs,
+  automatic heuristic design, multi-agent path finding (MAPF), and adaptive
+  search control. Bias selection and framing toward LLM/ML systems.
 
 ## 2. Voice & tone
 
-**Do:** precise, calm, specific, sourced. Explain *what is new* and *why it
-matters* in plain language. Prefer concrete nouns and numbers over adjectives.
-State limitations honestly. One clearly-labeled personal take per item.
+**Do:** explain like a good teacher. Lead with intuition, then precision. Build
+an analogy for every hard idea, then connect it back to the real mechanism.
+Define terms on first use. Walk the reader through the math one symbol at a time.
+Be honest about what the paper does and doesn't show.
 
-**Don't:** hype ("game-changer", "revolutionary", "you won't believe"),
-clickbait, listicle padding, emoji-as-decoration, fake urgency, vague praise
-("amazing work"), or any claim the source doesn't support.
+**Don't:** hype ("revolutionary", "game-changer"), clickbait, emoji-as-decoration,
+vague praise, or hand-waving over the hard part. Never pretend to a depth of
+reading you don't have — the full text is provided, so read it.
 
-Reading level: a second-year grad student skims it in 60 seconds and knows
-whether to click through.
+Length: **1,500–3,000 words.** Depth over breadth; it is fine to focus on the
+core contribution and say which sections you are skipping and why.
 
 ## 3. Reference exemplars (borrow principles, never prose)
 
-Derive *principles* from these; never copy wording (plagiarism + duplicate-content risk).
+Derive *principles* from these; never copy wording.
 
-- **The Batch (DeepLearning.AI)** — neutral "what happened / why it matters" framing.
-- **Hugging Face Daily Papers** — tight one-paragraph paper summaries; link-first.
-- **Sebastian Raschka** — plain-language explanation of method + takeaway.
-- **Import AI (Jack Clark)** — "why this matters" sections; sober tone on hype.
-- **Lil'Log (Lilian Weng)** — accuracy and definitional care.
-- **Papers with Code / arXiv** — canonical linking, exact titles, author credit.
-
-**Tone from the research digests; structure/readability from general best
-practice (headings, TL;DR, scannability, meta discipline) — but never their
-traffic-optimized clickbait.**
+- **distill.pub / Lil'Log (Lilian Weng)** — build intuition before formalism;
+  definitional care.
+- **Jay Alammar ("The Illustrated …")** — one clear mental model carried through.
+- **Sebastian Raschka** — plain-language method + takeaway, honest scope.
+- **The Gradient / Papers with Code** — sober framing, exact linking/attribution.
 
 ## 4. Post structure (template)
 
-Every post is one day's digest. Order:
-
 1. **Title** — see §5.
-2. **One-line TL;DR** (italic) — what today's picks are about, ≤ 25 words.
-3. **Repositories** section — up to N repo blocks (§6).
-4. **Papers** section — up to M paper blocks (§6).
-5. **Sources** — a bullet list repeating every external link used.
+2. **One-line TL;DR** (italic) — the paper's core contribution in ≤ 30 words.
+3. **`## The problem`** — what's broken / why it matters, with a concrete setup.
+4. **`## The core idea`** — the key insight in one or two intuitive analogies
+   (§6) before any formalism.
+5. **`## How it works`** — the mechanism, step by step, grounded in the paper.
+   Use sub-sections for distinct components.
+6. **`## The math`** *(include only if an equation is central)* — present the key
+   equation in `$$ … $$` and explain **every symbol in plain words** (§7).
+7. **`## Results`** — the headline numbers, with the baselines and the setup they
+   were measured against. Exact figures from the paper.
+8. **`## Limitations & what's not covered`** — honest scope; name sections of the
+   paper you did not dive into.
+9. **`## Why it matters`** — the takeaway, and where it connects to the broader
+   field (one or two sentences of the author's own view, clearly as opinion).
+10. **`## Source`** — the paper, linked (arXiv), with authors.
 
-Default scope: **2 repositories + 1 paper** (tunable). A thin day is fine — skip
-an item rather than pad it. Never invent items to hit a count.
+Not every paper needs every section — drop `## The math` when there's no central
+equation. Never invent results or sections that aren't in the paper.
 
 ### Jekyll front matter (exact keys)
 
 ```yaml
 ---
-title: "Research Radar — <Mon DD, YYYY>"
+title: "<Paper short name>: <one-line what it does>"
 date: YYYY-MM-DD
-excerpt: "<= 155 chars, plain summary of the day's picks, no clickbait>"
+excerpt: "<= 155 chars, plain summary of the paper's contribution, no clickbait>"
 tags:
-  - research-radar
+  - paper-dive
   - <2-4 topical tags, lowercase-hyphenated>
 header:
-  teaser: /images/radar/YYYY-MM-DD-card.png   # title card (§9)
+  teaser: /images/radar/YYYY-MM-DD-card.png
 lang: en
-translated_url: /blog/<slug>-ko/              # link to the KO version (§8)
+translated_url: /blog/YYYY-MM-DD-research-radar-ko/
 ---
 ```
 
 ## 5. Title rules
 
-- Format: `Research Radar — <Mon DD, YYYY>` for the daily digest. Optional
-  subtitle after an em dash naming the theme, e.g. `… — MAPF solvers & LLM agents`.
-- No numbers-as-bait ("7 repos that..."), no questions, no ALL CAPS, no emoji.
-- Slug: `YYYY-MM-DD-research-radar` (KO version: append `-ko`).
+- Format: `<Paper short name>: <plain one-line of what it does>`,
+  e.g. `PagedAttention: paging the KV cache to serve LLMs faster`.
+- No numbers-as-bait, no questions, no ALL CAPS, no emoji.
+- The post slug is fixed by the pipeline (`YYYY-MM-DD-research-radar`); don't
+  restate it in front matter.
 
-## 6. Per-item block format
+## 6. Intuition & analogies (the differentiator)
 
-**Repository**
-```
-### <exact repo name> — <one-line what-it-is>
-[`owner/repo`](<github url>) · <language> · <star count as of date>
+- For every hard mechanism, give a **concrete analogy** first, then map it back:
+  "the KV cache is like a concert hall booked for 2048 seats when only 500 show
+  up — the rest is reserved and wasted" → then the real term (internal
+  fragmentation).
+- Analogies are **your teaching device, not the paper's** — never attribute them
+  to the authors. They must be *accurate*: if the analogy implies something the
+  mechanism doesn't do, fix the analogy, don't bend the facts.
+- One or two strong analogies per hard idea beats a pile of weak ones.
 
-- **What's new:** <1-2 sentences, grounded in the repo's README/release>
-- **Why it matters:** <1 sentence>
-- **Caveat:** <1 sentence — maturity, scope, or unknowns>
-- **Take:** <1 line, clearly the author's opinion>
-```
+## 7. Math rules
 
-**Paper**
-```
-### <exact paper title>
-[<arXiv/venue id>](<url>) · <authors et al.> · <year>
+- Include an equation **only if it is central** to the contribution.
+- Use display math `$$ … $$` (kramdown + MathJax render it; avoid bare single-`$`
+  inline math — it may not render). For an inline symbol, prefer `\( … \)` or just
+  name it in prose.
+- After any equation, **explain every symbol in plain words** and say what the
+  whole expression computes — as the exemplar does ("$q_i$ is the query of the
+  token being generated; it scans every past key …").
+- Never show math you don't explain. If the derivation isn't needed to understand
+  the idea, describe it in words instead.
 
-- **Claim:** <what the paper claims, grounded in the abstract>
-- **Why it matters:** <1 sentence>
-- **Caveat:** <1 sentence — e.g. "abstract-only read", eval scope, no code>
-- **Take:** <1 line, clearly the author's opinion>
-```
+## 8. Figures & copyright
 
-If the summary is based only on an abstract (not the full paper), the **Caveat**
-must say so. Never imply a depth of reading that did not happen.
+- **Do not reproduce the paper's figures** (copyright). Describe the relevant one
+  in words and point to it: "see Figure 3 in the paper". Link the paper.
+- Quote at most one short sentence from the paper; summarize everything else in
+  your own words.
+- The title card is the only image (§11); optionally one original diagram/chart
+  you build from real numbers.
 
-## 7. Hard rules (non-negotiable — the reviewer enforces these)
+## 9. Hard rules (non-negotiable — the reviewer enforces these)
 
-1. **Grounding:** every factual sentence must trace to a fetched source
-   (README, release notes, abstract, repo metadata). If it isn't in the source,
-   cut it.
-2. **No fabrication:** repo names, paper titles, author names, numbers, and URLs
-   must be real and copied, not reconstructed from memory. Verify each link.
-3. **Attribution:** always credit authors/owners; always link the original.
-4. **Opinion is labeled:** personal judgment appears only under **Take**, never
-   smuggled into **What's new / Claim**.
-5. **Length:** a repo/paper block ≤ ~120 words; whole post ≤ ~700 words
-   (per language).
-6. **No hype, no clickbait, no emoji decoration** (§2).
-7. **No sensitive/pen-name content**, nothing that isn't safe under the author's
-   real name. Never link pen-name work. (See portfolio-wide rule.)
-8. **Copyright:** quote ≤ 1 short sentence from any source; summarize in your own
-   words; do not reproduce figures or long excerpts. Link, don't rehost.
+1. **Grounding:** every technical claim, number, method detail, and result must
+   trace to the provided `full_text`. If it isn't in the paper, cut it — except
+   clearly-labeled analogies (§6) and the one-sentence opinion in §9-structure.
+2. **No fabrication:** paper title, authors, method names, numbers, baselines,
+   and URLs are copied from the source, not reconstructed from memory.
+3. **Math is correct and explained** (§7). A wrong or unexplained equation fails.
+4. **Analogies are accurate and labeled as the author's own** (§6).
+5. **Figures not reproduced** (§8).
+6. **No hype/clickbait/emoji decoration** (§2). Opinion only in the one labeled
+   takeaway sentence.
+7. **Length 1,500–3,000 words.**
+8. **No sensitive/pen-name/real-name-unsafe content.**
 
-## 8. Bilingual rules (EN primary + KO)
+## 10. Bilingual rules (EN primary + KO)
 
 - The **English post is canonical.** Generate a **Korean version** in the same
-  run as a separate file: `_posts/YYYY-MM-DD-research-radar-ko.md` with
-  `lang: ko` and `translated_url` pointing back to the EN post.
-- **URL convention (exact):** posts are served at `/blog/<slug>/`. For a digest
-  dated `YYYY-MM-DD`, the EN slug is `YYYY-MM-DD-research-radar` → URL
-  `/blog/YYYY-MM-DD-research-radar/`, and the KO slug adds `-ko` →
-  `/blog/YYYY-MM-DD-research-radar-ko/`. Use these exact paths for the toggle
-  and for `translated_url`.
-- Top of each post: a one-line language toggle linking the pair, e.g.
-  `[EN](/blog/<slug>/) · [한국어](/blog/<slug>-ko/)`.
-- Translation is **faithful, not re-interpreted** — same claims, same caveats,
-  same links. Technical terms keep their English form on first use with a Korean
-  gloss where natural (e.g. "다중로봇 경로계획(MAPF)").
-- If the KO pass would change meaning to sound smoother, keep meaning and accept
-  a plainer sentence. The reviewer checks EN↔KO claim parity.
+  run: `_posts/YYYY-MM-DD-research-radar-ko.md` with `lang: ko` and
+  `translated_url` to the EN post.
+- **URL convention (exact):** posts are served at `/blog/<slug>/`. EN slug is
+  `YYYY-MM-DD-research-radar` → `/blog/YYYY-MM-DD-research-radar/`; KO adds `-ko`
+  → `/blog/YYYY-MM-DD-research-radar-ko/`. Use these exact paths for the toggle
+  and `translated_url`.
+- Top of each post: `[EN](/blog/<slug>/) · [한국어](/blog/<slug>-ko/)`.
+- Translation is faithful: same claims, math, analogies, numbers, links. Keep
+  technical terms in English on first use with a Korean gloss, e.g.
+  "KV 캐시(KV cache)". The reviewer checks EN↔KO parity.
 
-## 9. Title-card spec (free, no generative images)
+## 11. Title-card spec (free, no generative images)
 
-- **Render:** an HTML/CSS template → PNG (headless Chromium/Playwright) or Pillow.
-  No AI-generated decorative images.
-- **Size:** 1200 × 630 (OG ratio). **Weight:** keep < 80 KB (PNG, optimized).
-- **Path:** `/images/radar/YYYY-MM-DD-card.png`.
-- **Content:** site/author mark, "Research Radar", the date, and the day's theme
-  line. Fixed brand palette; one typeface. No stock photos, no clip art.
-- **Charts (optional):** if a real number is worth showing (e.g. star growth),
-  render a small matplotlib/mermaid chart from actual data — never a decorative
-  graphic.
+- HTML/CSS → PNG (Pillow in the pipeline). No AI-generated imagery.
+- 1200 × 630, < 80 KB PNG, path `/images/radar/YYYY-MM-DD-card.png`.
+- Content: "RESEARCH RADAR", the paper's short name, and the date. Fixed brand
+  palette, one typeface.
 
-## 10. Selection & sourcing
+## 12. Automated review checklist (the reviewer pass)
 
-- **Repos:** GitHub trending (scrape `github.com/trending`) or Search API
-  (`sort:stars`, recent window). Prefer items adjacent to the author's themes.
-- **Papers:** arXiv (cs.AI/cs.LG/cs.RO), Hugging Face Daily Papers, Papers with
-  Code trending, Semantic Scholar. "Hot journal" = trending preprints, not a
-  fixed journal feed.
-- Record the exact source URL for every item for the Sources section and for the
-  reviewer's grounding check.
-- Skip anything you cannot fetch and verify. A smaller honest digest beats a
-  padded one.
+The reviewer receives **the draft + the paper's full text** and verifies, one by
+one. **Any FAIL quarantines the post (not published):**
 
-## 11. Automated review checklist (the reviewer pass)
-
-The reviewer receives **the draft + the fetched source material** and verifies,
-one by one. **Any FAIL quarantines the post to a `draft` branch (not published):**
-
-- [ ] Every claim is supported by the provided sources (no ungrounded sentences).
-- [ ] All repo names, paper titles, authors, numbers, and URLs match the sources.
-- [ ] Every link resolves (and points where the text says).
-- [ ] Abstract-only summaries are labeled as such in **Caveat**.
-- [ ] Opinion appears only under **Take**.
-- [ ] No hype/clickbait/emoji-decoration; tone matches §2.
-- [ ] Length limits respected (§7.5).
-- [ ] EN and KO versions carry the same claims, caveats, and links (§8).
-- [ ] Front matter valid; slug, tags, excerpt, teaser present and well-formed.
+- [ ] Every technical claim/number/method detail is supported by `full_text`.
+- [ ] Paper title, authors, method names, baselines, and URL match the source.
+- [ ] Each equation is correct and every symbol is explained (§7).
+- [ ] Analogies are technically accurate and not attributed to the authors (§6).
+- [ ] No paper figures are reproduced; the paper is linked (§8).
+- [ ] Opinion appears only in the single labeled takeaway sentence.
+- [ ] Length is 1,500–3,000 words; tone matches §2 (no hype/clickbait).
+- [ ] EN and KO carry the same claims, math, analogies, and links (§10).
+- [ ] Front matter valid; title, excerpt, tags, teaser, `translated_url` present.
 - [ ] No sensitive/pen-name/real-name-unsafe content.
 
 The reviewer outputs a short PASS/FAIL report with the specific failing line for
-any FAIL. Grounding is checked against sources, **not** vibes: if a sentence has
-no source, it fails — the writer must cut or fix it.
+any FAIL. Grounding is checked against the full text, **not** vibes: a claim with
+no support in the paper fails.
 
-## 12. Worked micro-examples
+## 13. Worked micro-examples
 
-**Good title:** `Research Radar — Oct 24, 2026 — anytime MAPF & LLM agents`
-**Bad title:** `🚀 5 INSANE AI repos you NEED to see today!!`
+**Good title:** `PagedAttention: paging the KV cache to serve LLMs 2–4× faster`
+**Bad title:** `🚀 The INSANE trick that makes LLMs 4x faster!!`
 
-**Good item take:** `Take: the held-out eval is the honest part here — most LNS
-papers skip it.`
-**Bad item take:** `This is a total game-changer for the whole field.`
+**Good analogy framing:** "Think of the KV cache as a concert hall booked for its
+maximum 2,048 seats even though only 500 fans show up — the empty 1,548 are
+reserved and unusable by anyone else. That waste is *internal fragmentation*, and
+it's what PagedAttention attacks."
+**Bad:** "The KV cache is basically just memory and it gets full." (no mechanism)

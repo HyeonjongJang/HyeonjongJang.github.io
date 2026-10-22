@@ -1,50 +1,46 @@
 #!/usr/bin/env python3
-"""Fetch raw source material for a Research Radar digest.
+"""Pick ONE notable paper and fetch its FULL TEXT for a deep-dive explainer.
 
-Stdlib only (urllib / re / xml.etree) so it runs without pip installs.
-Writes work/sources.json — the single grounding file that BOTH the writer
-and the reviewer passes read. Every item here must carry an exact URL so the
-reviewer can verify claims against it.
+Stdlib only. Writes work/sources.json — the single grounding file that BOTH the
+writer and the reviewer read. For a deep dive the reviewer checks the whole
+explainer against `full_text`, so full text (not just the abstract) is required:
+a candidate without retrievable full text is skipped.
 
-Scope default (see STYLE_GUIDE §4/§10): top 2 repos + 1 paper. Tunable below.
-This is a best-effort fetcher; GitHub's trending markup changes occasionally,
-so treat the scraper as a maintenance point, not a fixed contract.
+Selection: Hugging Face Daily Papers (community-upvoted, LLM-heavy) first, with
+a soft LLM lean; falls back to recent arXiv. Full text: arXiv HTML, then ar5iv.
 """
+import html
 import json
 import os
+import re
 import sys
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import date, timedelta
+from datetime import date
 from pathlib import Path
 
-N_REPOS = 2
-N_PAPERS = 1
-POOL = 30  # candidates fetched before the LLM-lean ranking below trims to N.
-# Soft LLM preference (NOT a hard filter): items matching these float to the top,
-# but non-LLM items still appear when there aren't enough LLM ones — the author
-# is a researcher *and* a developer, so general dev/ML items are welcome too.
+CANDIDATES = 8          # papers to consider before taking the first with full text
+MAX_CHARS = 120_000     # truncate full text to keep the prompt bounded
+ARXIV_CATS = ["cs.CL", "cs.AI", "cs.LG"]
 LLM_KW = ["llm", "language model", "large language model", "gpt", "llama",
           "transformer", "rag", "retrieval-augmented", "agent", "fine-tun",
-          "instruction", "chatbot", "prompt", "mixture-of-experts", "moe"]
-# arXiv categories: cs.CL (LLM / NLP home) first, plus general AI/ML.
-ARXIV_CATS = ["cs.CL", "cs.AI", "cs.LG"]
-UA = {"User-Agent": "research-radar/0.1 (personal digest; +https://hyeonjongjang.github.io)"}
+          "instruction", "chatbot", "prompt", "mixture-of-experts", "moe",
+          "attention", "inference", "serving", "reasoning"]
+UA = {"User-Agent": "research-radar/0.2 (personal digest; +https://hyeonjongjang.github.io)"}
 WORK = Path(__file__).parent / "work"
 
 
-def _get(url: str, timeout: int = 20) -> str:
+def _get(url: str, timeout: int = 30) -> str:
     headers = dict(UA)
     if "api.github.com" in url:
         headers["Accept"] = "application/vnd.github+json"
-        tok = os.environ.get("GITHUB_TOKEN")  # optional: raises rate limit 60->5000/hr
-        if tok:
-            headers["Authorization"] = f"Bearer {tok}"
+        if os.environ.get("GITHUB_TOKEN"):
+            headers["Authorization"] = f"Bearer {os.environ['GITHUB_TOKEN']}"
     req = urllib.request.Request(url, headers=headers)
-    for attempt in range(2):  # one retry on 429 (arXiv / unauthenticated GitHub)
+    for attempt in range(2):  # one retry on 429
         try:
             with urllib.request.urlopen(req, timeout=timeout) as r:
                 return r.read().decode("utf-8", "replace")
@@ -60,72 +56,100 @@ def _llm_score(text: str) -> int:
     return sum(1 for k in LLM_KW if k in t)
 
 
-def fetch_trending_repos(n: int) -> list[dict]:
-    """GitHub Search API: most-starred repos created in the last ~14 days — a
-    robust 'trending' proxy. Stable JSON, unlike scraping the trending page."""
-    since = (date.today() - timedelta(days=14)).isoformat()
-    q = urllib.parse.quote(f"created:>{since}")
-    url = (
-        f"https://api.github.com/search/repositories?q={q}"
-        f"&sort=stars&order=desc&per_page={POOL}"
-    )
-    data = json.loads(_get(url))
-    repos = []
-    for it in data.get("items", []):
-        repos.append({
-            "type": "repo",
-            "name": it["full_name"],
-            "url": it["html_url"],
-            "description": (it.get("description") or "").strip(),
-            "language": it.get("language") or "",
-            "stars": str(it.get("stargazers_count", "")),
+def _norm_id(arxiv_id: str) -> str:
+    """'2309.06180v2' / 'arXiv:2309.06180' / a URL -> '2309.06180'."""
+    m = re.search(r"(\d{4}\.\d{4,5})", arxiv_id)
+    return m.group(1) if m else arxiv_id.strip()
+
+
+def candidates_from_hf() -> list[dict]:
+    data = json.loads(_get("https://huggingface.co/api/daily_papers?limit=50"))
+    out = []
+    for item in data:
+        p = item.get("paper", item)
+        pid = p.get("id") or p.get("arxiv_id") or ""
+        if not pid:
+            continue
+        out.append({
+            "id": _norm_id(pid),
+            "title": " ".join((p.get("title") or "").split()),
+            "abstract": " ".join((p.get("summary") or p.get("abstract") or "").split()),
+            "authors": [a.get("name", "") for a in (p.get("authors") or []) if isinstance(a, dict)],
+            "upvotes": p.get("upvotes", item.get("upvotes", 0)) or 0,
         })
-    # Stable sort keeps star order among equal scores; LLM-matching repos rise.
-    repos.sort(key=lambda r: _llm_score(r["name"] + " " + r["description"]), reverse=True)
-    return repos[:n]
+    # Prefer upvotes, then LLM lean.
+    out.sort(key=lambda c: (c["upvotes"], _llm_score(c["title"] + " " + c["abstract"])), reverse=True)
+    return out
 
 
-def fetch_recent_papers(n: int) -> list[dict]:
-    """arXiv API, newest in the chosen categories. title/url/authors/abstract."""
+def candidates_from_arxiv() -> list[dict]:
     cat = "+OR+".join(f"cat:{c}" for c in ARXIV_CATS)
-    url = (
-        "http://export.arxiv.org/api/query?"
-        f"search_query={cat}&sortBy=submittedDate&sortOrder=descending&max_results={POOL}"
-    )
-    feed = _get(url)
+    url = ("http://export.arxiv.org/api/query?"
+           f"search_query={cat}&sortBy=submittedDate&sortOrder=descending&max_results=30")
     ns = {"a": "http://www.w3.org/2005/Atom"}
-    papers = []
-    for e in ET.fromstring(feed).findall("a:entry", ns):
-        link = e.find("a:id", ns).text.strip()
-        papers.append({
-            "type": "paper",
+    out = []
+    for e in ET.fromstring(_get(url)).findall("a:entry", ns):
+        out.append({
+            "id": _norm_id(e.find("a:id", ns).text),
             "title": " ".join(e.find("a:title", ns).text.split()),
-            "url": link,
-            "authors": [a.find("a:name", ns).text for a in e.findall("a:author", ns)],
             "abstract": " ".join(e.find("a:summary", ns).text.split()),
-            "published": (e.find("a:published", ns).text or "")[:10],
+            "authors": [a.find("a:name", ns).text for a in e.findall("a:author", ns)],
+            "upvotes": 0,
         })
-    # LLM-matching papers rise; newest order preserved among equal scores.
-    papers.sort(key=lambda p: _llm_score(p["title"] + " " + p["abstract"]), reverse=True)
-    return papers[:n]
+    out.sort(key=lambda c: _llm_score(c["title"] + " " + c["abstract"]), reverse=True)
+    return out
+
+
+def _strip_html(h: str) -> str:
+    h = re.sub(r"(?is)<(script|style|nav|header|footer)[^>]*>.*?</\1>", " ", h)
+    h = re.sub(r"(?s)<[^>]+>", " ", h)
+    return re.sub(r"\s+\n", "\n", re.sub(r"[ \t]+", " ", html.unescape(h))).strip()
+
+
+def fetch_fulltext(arxiv_id: str) -> str | None:
+    for url in (f"https://arxiv.org/html/{arxiv_id}",
+                f"https://ar5iv.org/abs/{arxiv_id}"):
+        try:
+            text = _strip_html(_get(url))
+        except Exception:  # noqa: BLE001
+            continue
+        if len(text) > 4000:  # a real rendered paper, not a stub/404
+            return text[:MAX_CHARS]
+    return None
 
 
 def main() -> int:
     WORK.mkdir(exist_ok=True)
-    out = {"date": date.today().isoformat(), "repos": [], "papers": []}
+    cands = []
     try:
-        out["repos"] = fetch_trending_repos(N_REPOS)
-    except Exception as e:  # noqa: BLE001 - keep going; a thin day is allowed
-        print(f"[warn] repo fetch failed: {e}", file=sys.stderr)
-    try:
-        out["papers"] = fetch_recent_papers(N_PAPERS)
+        cands = candidates_from_hf()
     except Exception as e:  # noqa: BLE001
-        print(f"[warn] paper fetch failed: {e}", file=sys.stderr)
+        print(f"[warn] HF daily papers failed: {e}", file=sys.stderr)
+    if not cands:
+        try:
+            cands = candidates_from_arxiv()
+        except Exception as e:  # noqa: BLE001
+            print(f"[warn] arXiv fallback failed: {e}", file=sys.stderr)
 
+    chosen = None
+    for c in cands[:CANDIDATES]:
+        ft = fetch_fulltext(c["id"])
+        if ft:
+            c["full_text"] = ft
+            c["url"] = f"https://arxiv.org/abs/{c['id']}"
+            chosen = c
+            break
+        print(f"[skip] no full text for {c['id']}", file=sys.stderr)
+
+    if not chosen:
+        print("no paper with retrievable full text today — skipping.")
+        return 3
+
+    out = {"date": date.today().isoformat(), "paper": chosen}
     (WORK / "sources.json").write_text(json.dumps(out, indent=2, ensure_ascii=False))
-    print(f"wrote {WORK/'sources.json'}: {len(out['repos'])} repos, {len(out['papers'])} papers")
-    # Signal a thin/empty day so the orchestrator can skip publishing.
-    return 0 if (out["repos"] or out["papers"]) else 3
+    print(f"wrote {WORK/'sources.json'}: {chosen['id']} — {chosen['title'][:70]} "
+          f"({len(chosen['full_text'])} chars full text)")
+    return 0
 
 
 if __name__ == "__main__":

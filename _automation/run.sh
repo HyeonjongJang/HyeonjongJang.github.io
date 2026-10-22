@@ -79,16 +79,16 @@ fi
 echo "[4/5] translate (KO) + render card"
 cat prompts/translate.md "$WORK/draft-en.md" > "$WORK/ko_prompt.txt"
 run_claude "$GEN_ARGS" "$WORK/ko_prompt.txt" > "$WORK/draft-ko.md" || true
-# Theme = text after a SECOND em dash (optional subtitle); empty otherwise.
+# Card theme = the paper's short name (title text before the first colon).
 THEME="$(python3 - "$WORK/draft-en.md" <<'PY'
 import re, sys
 t = open(sys.argv[1], encoding="utf-8").read()
 m = re.search(r'^title:\s*"?(.*?)"?\s*$', t, re.M)
-parts = (m.group(1) if m else "").split("—")
-print(parts[2].strip() if len(parts) >= 3 else "")
+title = (m.group(1) if m else "").strip()
+print(title.split(":")[0].strip()[:90])
 PY
 )"
-[ -z "$THEME" ] && THEME="today"
+[ -z "$THEME" ] && THEME="today's paper"
 python3 render_card.py "$DATE" "$THEME" || echo "[warn] card render skipped (install Pillow)"
 
 echo "[5/5] write posts + publish"

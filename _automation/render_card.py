@@ -43,12 +43,15 @@ def render(date_str: str, theme: str) -> Path:
 
     d.rectangle([0, 0, 12, H], fill=ACCENT)            # left accent bar
     d.text((80, 90), "RESEARCH RADAR", font=_font(34, True), fill=ACCENT)
-    d.text((80, 150), "AI/ML repositories & papers,", font=_font(52, True), fill=FG)
-    d.text((80, 215), "with a one-line take.", font=_font(52, True), fill=FG)
+    d.text((80, 150), "One paper,", font=_font(52, True), fill=FG)
+    d.text((80, 215), "explained in depth.", font=_font(52, True), fill=FG)
 
-    # Theme line (wrap to two lines if long).
-    theme = theme.strip() or "today's picks"
-    d.text((80, 340), theme[:70], font=_font(36), fill=MUTED)
+    # Paper short name (wrap to two lines if long).
+    theme = theme.strip() or "today's paper"
+    line1, line2 = theme[:46], theme[46:92]
+    d.text((80, 330), line1, font=_font(34, True), fill=MUTED)
+    if line2:
+        d.text((80, 378), line2, font=_font(34, True), fill=MUTED)
 
     d.text((80, H - 90), date_str, font=_font(30, True), fill=FG)
     d.text((W - 360, H - 90), "hyeonjongjang.github.io", font=_font(26), fill=MUTED)
