@@ -134,7 +134,13 @@ must say so. Never imply a depth of reading that did not happen.
 - The **English post is canonical.** Generate a **Korean version** in the same
   run as a separate file: `_posts/YYYY-MM-DD-research-radar-ko.md` with
   `lang: ko` and `translated_url` pointing back to the EN post.
-- Top of each post: a one-line language toggle (`EN · 한국어`) linking the pair.
+- **URL convention (exact):** posts are served at `/blog/<slug>/`. For a digest
+  dated `YYYY-MM-DD`, the EN slug is `YYYY-MM-DD-research-radar` → URL
+  `/blog/YYYY-MM-DD-research-radar/`, and the KO slug adds `-ko` →
+  `/blog/YYYY-MM-DD-research-radar-ko/`. Use these exact paths for the toggle
+  and for `translated_url`.
+- Top of each post: a one-line language toggle linking the pair, e.g.
+  `[EN](/blog/<slug>/) · [한국어](/blog/<slug>-ko/)`.
 - Translation is **faithful, not re-interpreted** — same claims, same caveats,
   same links. Technical terms keep their English form on first use with a Korean
   gloss where natural (e.g. "다중로봇 경로계획(MAPF)").

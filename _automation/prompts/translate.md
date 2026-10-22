@@ -10,6 +10,8 @@ section 8 (bilingual rules).
 - If a smoother Korean sentence would change meaning, keep the meaning and accept
   a plainer sentence.
 
-Output ONLY the finished Korean Markdown post (front matter + body), nothing else.
+Output ONLY the finished Korean Markdown post. The VERY FIRST characters of your
+reply must be the front-matter delimiter `---`. No preamble ("Here is..."), no
+closing remark, and do NOT wrap the whole thing in a ``` code fence.
 
 === ENGLISH POST (canonical) ===

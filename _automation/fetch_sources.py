@@ -11,11 +11,14 @@ This is a best-effort fetcher; GitHub's trending markup changes occasionally,
 so treat the scraper as a maintenance point, not a fixed contract.
 """
 import json
-import re
+import os
 import sys
+import time
+import urllib.error
+import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 N_REPOS = 2
@@ -34,9 +37,22 @@ WORK = Path(__file__).parent / "work"
 
 
 def _get(url: str, timeout: int = 20) -> str:
-    req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read().decode("utf-8", "replace")
+    headers = dict(UA)
+    if "api.github.com" in url:
+        headers["Accept"] = "application/vnd.github+json"
+        tok = os.environ.get("GITHUB_TOKEN")  # optional: raises rate limit 60->5000/hr
+        if tok:
+            headers["Authorization"] = f"Bearer {tok}"
+    req = urllib.request.Request(url, headers=headers)
+    for attempt in range(2):  # one retry on 429 (arXiv / unauthenticated GitHub)
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return r.read().decode("utf-8", "replace")
+        except urllib.error.HTTPError as e:
+            if e.code == 429 and attempt == 0:
+                time.sleep(5)
+                continue
+            raise
 
 
 def _llm_score(text: str) -> int:
@@ -45,29 +61,26 @@ def _llm_score(text: str) -> int:
 
 
 def fetch_trending_repos(n: int) -> list[dict]:
-    """Scrape github.com/trending. Returns name/url/description/language/stars."""
-    html = _get("https://github.com/trending?since=daily")
-    repos: list[dict] = []
-    # Each repo heading: <h2 ...><a href="/owner/repo" ...>
-    for m in re.finditer(r'<h2[^>]*>\s*<a href="/([^"/]+/[^"?]+)"', html):
-        slug = m.group(1).strip()
-        if slug.count("/") != 1:
-            continue
-        block = html[m.end(): m.end() + 2000]
-        desc = re.search(r'<p[^>]*col-9[^>]*>\s*(.*?)\s*</p>', block, re.S)
-        lang = re.search(r'itemprop="programmingLanguage">([^<]+)<', block)
-        stars = re.search(r'/stargazers">\s*([\d,]+)', block)
+    """GitHub Search API: most-starred repos created in the last ~14 days — a
+    robust 'trending' proxy. Stable JSON, unlike scraping the trending page."""
+    since = (date.today() - timedelta(days=14)).isoformat()
+    q = urllib.parse.quote(f"created:>{since}")
+    url = (
+        f"https://api.github.com/search/repositories?q={q}"
+        f"&sort=stars&order=desc&per_page={POOL}"
+    )
+    data = json.loads(_get(url))
+    repos = []
+    for it in data.get("items", []):
         repos.append({
             "type": "repo",
-            "name": slug,
-            "url": f"https://github.com/{slug}",
-            "description": re.sub(r"<[^>]+>", "", desc.group(1)).strip() if desc else "",
-            "language": lang.group(1).strip() if lang else "",
-            "stars": stars.group(1).strip() if stars else "",
+            "name": it["full_name"],
+            "url": it["html_url"],
+            "description": (it.get("description") or "").strip(),
+            "language": it.get("language") or "",
+            "stars": str(it.get("stargazers_count", "")),
         })
-        if len(repos) >= POOL:
-            break
-    # Stable sort keeps trending order among equal scores; LLM-matching repos rise.
+    # Stable sort keeps star order among equal scores; LLM-matching repos rise.
     repos.sort(key=lambda r: _llm_score(r["name"] + " " + r["description"]), reverse=True)
     return repos[:n]
 
