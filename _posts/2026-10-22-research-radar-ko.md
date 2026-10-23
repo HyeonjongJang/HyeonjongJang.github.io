@@ -9,12 +9,9 @@ tags:
   - inference-efficiency
 header:
   teaser: radar/2026-10-22-card.png
-  image: radar/2026-10-22-card.png
 lang: ko
 translated_url: /blog/2026-10-22-research-radar/
 ---
-
-[EN](/blog/2026-10-22-research-radar/) · [한국어](/blog/2026-10-22-research-radar-ko/)
 
 *에이전트가 KV 캐시의 항목을 직접 삭제(drop)하고 재배치(reposition)할 수 있으며, 텍스트 재작성이나 재-프리필 없이 기존의 컨텍스트 요약 방식 대비 정확도와 비용 모두를 개선합니다.*
 

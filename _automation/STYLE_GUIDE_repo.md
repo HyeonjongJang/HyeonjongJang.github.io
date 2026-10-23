@@ -72,7 +72,6 @@ tags:
   - <2-4 topical tags, lowercase-hyphenated>
 header:
   teaser: radar/<DATE>-card.png
-  image: radar/<DATE>-card.png
 lang: en
 translated_url: /blog/<SLUG>-ko/
 ---
@@ -120,7 +119,8 @@ translated_url: /blog/<SLUG>-ko/
   run with `lang: ko` and `translated_url` to the EN post.
 - **URL convention:** the TASK gives you the exact slug. EN is `/blog/<SLUG>/`,
   KO is `/blog/<SLUG>-ko/`. Use these for the toggle and `translated_url`.
-- Top of each post: `[EN](/blog/<SLUG>/) · [한국어](/blog/<SLUG>-ko/)`.
+- The language toggle (EN / 한국어) is rendered automatically from `lang` and
+  `translated_url`; do not add one in the body.
 - Translation is faithful: same claims, commands, numbers, links. Keep tool names
   and code in English; gloss technical terms, e.g. "추론(inference)".
 

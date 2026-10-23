@@ -9,12 +9,9 @@ tags:
   - inference-efficiency
 header:
   teaser: radar/2026-10-22-card.png
-  image: radar/2026-10-22-card.png
 lang: en
 translated_url: /blog/2026-10-22-research-radar-ko/
 ---
-
-[EN](/blog/2026-10-22-research-radar/) · [한국어](/blog/2026-10-22-research-radar-ko/)
 
 *Agents can directly drop and reposition entries in their KV cache, with no text rewriting and no re-prefill, improving both accuracy and cost over conventional context summarization.*
 

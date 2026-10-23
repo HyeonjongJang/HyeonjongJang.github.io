@@ -26,7 +26,8 @@ layout: default
     <div class="page__inner-wrap">
       {% unless page.header.overlay_color or page.header.overlay_image %}
         <header>
-          {% if page.title %}<h1 class="page__title{% if page.header.image %} u-visually-hidden{% endif %}" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
+          {% if page.header.teaser %}<img class="rr-card" src="{{ base_path }}/images/{{ page.header.teaser }}" alt="{{ page.title | escape }}" />{% endif %}
+          {% if page.title %}<h1 class="page__title{% if page.header.teaser %} u-visually-hidden{% endif %}" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
           {% if page.read_time %}
             <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
           {% endif %}
@@ -45,6 +46,15 @@ layout: default
       {% endunless %}
 
       <section class="page__content" itemprop="text">
+        {% if page.translated_url %}
+        <div class="rr-langbar">
+          {% if page.lang == 'ko' %}
+          <a class="rr-lang" href="{{ base_path }}{{ page.translated_url }}">EN</a><span class="rr-lang is-active">한국어</span>
+          {% else %}
+          <span class="rr-lang is-active">EN</span><a class="rr-lang" href="{{ base_path }}{{ page.translated_url }}">한국어</a>
+          {% endif %}
+        </div>
+        {% endif %}
         {{ content }}
 
         {% if page.citation and page.paperurl and page.slidesurl and page.bibtexurl %}
