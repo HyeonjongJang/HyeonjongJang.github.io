@@ -18,6 +18,13 @@ remark, no ``` code fence around the whole thing.
 
 Language: English (the canonical version).
 
+This post's exact identifiers (use verbatim):
+- date: {{DATE}}
+- slug: {{SLUG}}   → EN URL /blog/{{SLUG}}/ , KO URL /blog/{{SLUG}}-ko/
+- card image: /images/radar/{{DATE}}-card.png
+- top toggle line (first body line): [EN](/blog/{{SLUG}}/) · [한국어](/blog/{{SLUG}}-ko/)
+- front matter `translated_url`: /blog/{{SLUG}}-ko/
+
 === STYLE GUIDE ===
 {{STYLE_GUIDE}}
 

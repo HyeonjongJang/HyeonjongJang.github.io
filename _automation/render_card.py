@@ -36,14 +36,14 @@ def _font(size: int, bold: bool = False):
     return ImageFont.load_default()
 
 
-def render(date_str: str, theme: str) -> Path:
+def render(date_str: str, theme: str, noun: str = "paper") -> Path:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     img = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(img)
 
     d.rectangle([0, 0, 12, H], fill=ACCENT)            # left accent bar
     d.text((80, 90), "RESEARCH RADAR", font=_font(34, True), fill=ACCENT)
-    d.text((80, 150), "One paper,", font=_font(52, True), fill=FG)
+    d.text((80, 150), f"One {noun},", font=_font(52, True), fill=FG)
     d.text((80, 215), "explained in depth.", font=_font(52, True), fill=FG)
 
     # Paper short name (wrap to two lines if long).
@@ -64,6 +64,8 @@ def render(date_str: str, theme: str) -> Path:
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("usage: render_card.py <YYYY-MM-DD> [theme]", file=sys.stderr)
+        print("usage: render_card.py <YYYY-MM-DD> [theme] [noun]", file=sys.stderr)
         raise SystemExit(2)
-    render(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else "")
+    render(sys.argv[1],
+           sys.argv[2] if len(sys.argv) > 2 else "",
+           sys.argv[3] if len(sys.argv) > 3 else "paper")

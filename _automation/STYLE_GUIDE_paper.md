@@ -69,20 +69,20 @@ Derive *principles* from these; never copy wording.
 Not every paper needs every section — drop `## The math` when there's no central
 equation. Never invent results or sections that aren't in the paper.
 
-### Jekyll front matter (exact keys)
+### Jekyll front matter (exact keys — the TASK gives you the exact slug/date)
 
 ```yaml
 ---
 title: "<Paper short name>: <one-line what it does>"
-date: YYYY-MM-DD
+date: <DATE>
 excerpt: "<= 155 chars, plain summary of the paper's contribution, no clickbait>"
 tags:
   - paper-dive
   - <2-4 topical tags, lowercase-hyphenated>
 header:
-  teaser: /images/radar/YYYY-MM-DD-card.png
+  teaser: /images/radar/<DATE>-card.png
 lang: en
-translated_url: /blog/YYYY-MM-DD-research-radar-ko/
+translated_url: /blog/<SLUG>-ko/
 ---
 ```
 
@@ -91,8 +91,6 @@ translated_url: /blog/YYYY-MM-DD-research-radar-ko/
 - Format: `<Paper short name>: <plain one-line of what it does>`,
   e.g. `PagedAttention: paging the KV cache to serve LLMs faster`.
 - No numbers-as-bait, no questions, no ALL CAPS, no emoji.
-- The post slug is fixed by the pipeline (`YYYY-MM-DD-research-radar`); don't
-  restate it in front matter.
 
 ## 6. Intuition & analogies (the differentiator)
 
@@ -147,10 +145,9 @@ translated_url: /blog/YYYY-MM-DD-research-radar-ko/
 - The **English post is canonical.** Generate a **Korean version** in the same
   run: `_posts/YYYY-MM-DD-research-radar-ko.md` with `lang: ko` and
   `translated_url` to the EN post.
-- **URL convention (exact):** posts are served at `/blog/<slug>/`. EN slug is
-  `YYYY-MM-DD-research-radar` → `/blog/YYYY-MM-DD-research-radar/`; KO adds `-ko`
-  → `/blog/YYYY-MM-DD-research-radar-ko/`. Use these exact paths for the toggle
-  and `translated_url`.
+- **URL convention:** the TASK gives you the exact slug. EN is `/blog/<SLUG>/`,
+  KO is `/blog/<SLUG>-ko/`. Use these exact paths for the toggle and
+  `translated_url`.
 - Top of each post: `[EN](/blog/<slug>/) · [한국어](/blog/<slug>-ko/)`.
 - Translation is faithful: same claims, math, analogies, numbers, links. Keep
   technical terms in English on first use with a Korean gloss, e.g.
