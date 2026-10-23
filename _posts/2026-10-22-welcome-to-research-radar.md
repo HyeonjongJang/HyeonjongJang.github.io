@@ -1,7 +1,7 @@
 ---
 title: "Welcome to Research Radar"
 date: 2026-10-22
-excerpt: "In-depth explainers of one AI/ML paper at a time — intuition first, then the mechanism, the math, and honest limitations."
+excerpt: "In-depth explainers of one AI/ML paper at a time: intuition first, then the mechanism, the math, and honest limitations."
 tags:
   - paper-dive
   - meta
