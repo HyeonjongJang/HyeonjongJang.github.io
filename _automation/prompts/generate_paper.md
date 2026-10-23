@@ -16,7 +16,9 @@ Output ONLY the finished Markdown post (front matter + body). The VERY FIRST
 characters must be the front-matter delimiter `---`. No preamble, no closing
 remark, no ``` code fence around the whole thing.
 
-Language: English (the canonical version).
+Language: English (the canonical version). Write ONLY this one English post —
+do NOT also write a Korean version or any second post. The Korean translation is
+produced by a separate automated step. Your output ends at the Source section.
 
 This post's exact identifiers (use verbatim):
 - date: {{DATE}}
