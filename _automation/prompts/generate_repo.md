@@ -24,7 +24,7 @@ produced by a separate automated step. Your output ends at the Source section.
 This post's exact identifiers (use verbatim):
 - date: {{DATE}}
 - slug: {{SLUG}}   → EN URL /blog/{{SLUG}}/ , KO URL /blog/{{SLUG}}-ko/
-- card image: /images/radar/{{DATE}}-card.png
+- card image (front matter header.teaser AND header.image): radar/{{DATE}}-card.png
 - top toggle line (first body line): [EN](/blog/{{SLUG}}/) · [한국어](/blog/{{SLUG}}-ko/)
 - front matter `translated_url`: /blog/{{SLUG}}-ko/
 

@@ -83,7 +83,8 @@ tags:
   - paper-dive
   - <2-4 topical tags, lowercase-hyphenated>
 header:
-  teaser: /images/radar/<DATE>-card.png
+  teaser: radar/<DATE>-card.png
+  image: radar/<DATE>-card.png
 lang: en
 translated_url: /blog/<SLUG>-ko/
 ---

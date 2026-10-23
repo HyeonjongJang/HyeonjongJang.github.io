@@ -8,7 +8,8 @@ tags:
   - llm-agents
   - inference-efficiency
 header:
-  teaser: /images/radar/2026-10-22-card.png
+  teaser: radar/2026-10-22-card.png
+  image: radar/2026-10-22-card.png
 lang: ko
 translated_url: /blog/2026-10-22-research-radar/
 ---
