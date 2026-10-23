@@ -108,9 +108,10 @@ translated_url: /blog/YYYY-MM-DD-research-radar-ko/
 ## 7. Math rules
 
 - Include an equation **only if it is central** to the contribution.
-- Use display math `$$ … $$` (kramdown + MathJax render it; avoid bare single-`$`
-  inline math — it may not render). For an inline symbol, prefer `\( … \)` or just
-  name it in prose.
+- Use `$$ … $$` for **all** math — display (on its own line) and inline (within a
+  sentence). kramdown renders `$$…$$` in both positions. Do **not** use `\( … \)`,
+  `\[ … \]`, or bare single-`$`: kramdown leaves them as literal text. Prefer
+  naming a lone symbol in prose over heavy inline math.
 - After any equation, **explain every symbol in plain words** and say what the
   whole expression computes — as the exemplar does ("$q_i$ is the query of the
   token being generated; it scans every past key …").

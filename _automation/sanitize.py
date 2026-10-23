@@ -31,4 +31,11 @@ for j, l in enumerate(lines):
         break
 
 body = "\n".join(lines[start:]).strip()
+
+# Normalize math delimiters to $$…$$ so kramdown renders them. kramdown does NOT
+# process \( … \) / \[ … \] by default (they leak through as literal text);
+# $$…$$ renders inline within a line and as a display block on its own line.
+for a, b in (("\\(", "$$"), ("\\)", "$$"), ("\\[", "$$"), ("\\]", "$$")):
+    body = body.replace(a, b)
+
 open(p, "w", encoding="utf-8").write(body + "\n")
