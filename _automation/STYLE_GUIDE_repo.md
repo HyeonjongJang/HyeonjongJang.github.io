@@ -29,6 +29,9 @@ analogy for any non-obvious design idea. Be honest about maturity and scope.
 emoji-as-decoration, or implying you've run/audited the code when you've only read
 the README. Opinion goes in one clearly-labeled takeaway sentence.
 
+**No em dashes.** Do not use the `—` (em dash) character anywhere. Use a period,
+comma, colon, or parentheses instead. (Hyphens in names/ranges are fine.)
+
 Length: **1,000–2,000 words.** Enough to actually understand and try the tool.
 
 ## 3. Reference exemplars (borrow principles, never prose)
@@ -106,7 +109,9 @@ translated_url: /blog/<SLUG>-ko/
 5. **No hype/clickbait/emoji decoration** (§2). Opinion only in the one labeled
    takeaway sentence.
 6. **Length 1,000–2,000 words.**
-7. **No sensitive/pen-name/real-name-unsafe content.**
+7. **No em dashes** (the `—` character) anywhere; use a period, comma, colon, or
+   parentheses instead.
+8. **No sensitive/pen-name/real-name-unsafe content.**
 
 ## 9. Bilingual rules (EN primary + KO)
 
@@ -136,6 +141,7 @@ one. **Any FAIL quarantines the post (not published):**
 - [ ] Analogies are accurate and labeled as the author's own.
 - [ ] No hype/clickbait/emoji; opinion only in the labeled takeaway.
 - [ ] Length 1,000–2,000 words.
+- [ ] No em dash (`—`) anywhere in the post.
 - [ ] EN and KO carry the same claims, commands, and links.
 - [ ] Front matter valid; title, excerpt, tags, teaser, `translated_url` present.
 - [ ] No sensitive/pen-name/real-name-unsafe content.

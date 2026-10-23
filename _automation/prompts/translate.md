@@ -9,6 +9,8 @@ section 8 (bilingual rules).
   natural, e.g. "다중로봇 경로계획(MAPF)".
 - If a smoother Korean sentence would change meaning, keep the meaning and accept
   a plainer sentence.
+- Do not use the `—` (em dash) character anywhere; use a comma, period, colon, or
+  parentheses instead.
 
 Output ONLY the finished Korean Markdown post. The VERY FIRST characters of your
 reply must be the front-matter delimiter `---`. No preamble ("Here is..."), no

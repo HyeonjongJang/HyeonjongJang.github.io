@@ -32,7 +32,10 @@ Be honest about what the paper does and doesn't show.
 
 **Don't:** hype ("revolutionary", "game-changer"), clickbait, emoji-as-decoration,
 vague praise, or hand-waving over the hard part. Never pretend to a depth of
-reading you don't have — the full text is provided, so read it.
+reading you don't have; the full text is provided, so read it.
+
+**No em dashes.** Do not use the `—` (em dash) character anywhere. Use a period,
+comma, colon, or parentheses instead. (Hyphens in names/ranges are fine.)
 
 Length: **1,500–3,000 words.** Depth over breadth; it is fine to focus on the
 core contribution and say which sections you are skipping and why.
@@ -138,7 +141,9 @@ translated_url: /blog/<SLUG>-ko/
 6. **No hype/clickbait/emoji decoration** (§2). Opinion only in the one labeled
    takeaway sentence.
 7. **Length 1,500–3,000 words.**
-8. **No sensitive/pen-name/real-name-unsafe content.**
+8. **No em dashes** (the `—` character) anywhere; use a period, comma, colon, or
+   parentheses instead.
+9. **No sensitive/pen-name/real-name-unsafe content.**
 
 ## 10. Bilingual rules (EN primary + KO)
 
@@ -172,6 +177,7 @@ one. **Any FAIL quarantines the post (not published):**
 - [ ] No paper figures are reproduced; the paper is linked (§8).
 - [ ] Opinion appears only in the single labeled takeaway sentence.
 - [ ] Length is 1,500–3,000 words; tone matches §2 (no hype/clickbait).
+- [ ] No em dash (`—`) anywhere in the post.
 - [ ] EN and KO carry the same claims, math, analogies, and links (§10).
 - [ ] Front matter valid; title, excerpt, tags, teaser, `translated_url` present.
 - [ ] No sensitive/pen-name/real-name-unsafe content.
