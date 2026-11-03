@@ -434,6 +434,84 @@ html[data-theme="dark"] .archive summary em {
 
 <br/>
 
+**Startup & Entrepreneurship**
+----
+
+<details>
+<summary><strong><code>2026</code> Suwon Startup Audition — Growth Award (성장상, Idea Division)</strong> 🏆 <em>Growth Award (수상)</em></summary>
+<div markdown="1">
+
+- `Role:` Entrant (Idea Division)
+- `Period:` 2026.10
+- `Program:` 2026 Suwon Startup Audition (2026 수원도시재단 창업오디션), hosted by Suwon Special City and the Suwon Sustainable City Foundation (수원도시재단)
+- `Prize:` Growth Award (성장상) — Award of the Chairperson of the Korea Invention Promotion Association (한국발명진흥회장상), Idea Division
+- `Note:` Presented at the final award ceremony (Novotel Ambassador Suwon, Oct. 2026).
+
+</div>
+</details>
+
+<details>
+<summary><strong><code>2026</code> National Student Startup Week (3rd) — Excellence Prize</strong> 🏆 <em>Excellence Prize (수상)</em></summary>
+<div markdown="1">
+
+- `Role:` Participant
+- `Period:` 2026.10
+- `Program:` 3rd National Student Startup Week 2026 (제3회 대한민국 학생창업주간), hosted by the Ministry of Education with the National Research Foundation of Korea and the Korea Entrepreneurship Foundation (한국청년기업가정신재단)
+- `Prize:` Excellence Prize — Award of the Chairperson of the Korea Entrepreneurship Foundation (이사장 우수상)
+
+</div>
+</details>
+
+<details>
+<summary><strong><code>2026</code> KHU Valley Program (KVP), 15th Cohort — Excellence Prize</strong> 🏆 <em>Excellence Prize (수상)</em></summary>
+<div markdown="1">
+
+- `Role:` Participant
+- `Period:` 2026.10
+- `Program:` KHU Valley Program (KVP), 15th cohort — Kyung Hee University startup education track
+- `Prize:` Excellence Prize — Award of the Director of the KHU Startup Support Group (경희대 창업지원단장 우수상)
+
+</div>
+</details>
+
+<details>
+<summary><strong><code>2026</code> KHU Valley Start-up (KVS), 12th Demo Day — Award & Incubation Selection</strong> 🏆 <em>Award (수상)</em></summary>
+<div markdown="1">
+
+- `Role:` Participant
+- `Period:` 2026.10
+- `Program:` KHU Valley Start-up (KVS), 12th cohort Demo Day — Kyung Hee University
+- `Outcome:` Award recipient; selected for excellent-team incubation support.
+
+</div>
+</details>
+
+<details>
+<summary><strong><code>2026</code> "Everyone's Startup" (모두의 창업) 2nd — Round 1 Advancement</strong> <em>Selected (선발)</em></summary>
+<div markdown="1">
+
+- `Role:` Entrant
+- `Period:` 2026.10
+- `Program:` "Everyone's Startup" Project, 2nd edition (모두의 창업 2기), Ministry of SMEs and Startups
+- `Outcome:` Advanced to Round 1; received activity funding (KRW 2,000,000) and AI-solution support.
+
+</div>
+</details>
+
+<details>
+<summary><strong><code>2026</code> Future Women Entrepreneurs Program (IP Rights Track) — Final Selection</strong> <em>Selected (선발)</em></summary>
+<div markdown="1">
+
+- `Role:` Participant
+- `Period:` 2026.10
+- `Program:` Future Women Entrepreneurs Development Project — IP Rights Program (미래여성경제인육성사업 「IP 권리화 프로그램」), Korea Women Entrepreneurs Association (한국여성경제인협회)
+- `Outcome:` Finally selected for intellectual-property (IP) application support, including patent-attorney fees.
+
+</div>
+</details>
+
+<br/>
+
 **Global Programs**
 ----
 
