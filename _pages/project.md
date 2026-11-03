@@ -437,15 +437,21 @@ html[data-theme="dark"] .archive summary em {
 **Startup & Entrepreneurship**
 ----
 
+A 2026 startup track spanning competitions, university programs, and national projects. Summary of major outcomes (July–present, 13 items):
+
+<img src="/images/startup-track-summary-2026.jpg" alt="Startup track major outcomes summary, 2026" style="display:block; margin:0.4em auto 1.2em; max-width:100%; border:1px solid #e6e8eb; border-radius:6px;" />
+
 <details>
 <summary><strong><code>2026</code> Suwon Startup Audition — Growth Award (성장상, Idea Division)</strong> 🏆 <em>Growth Award (수상)</em></summary>
 <div markdown="1">
 
 - `Role:` Entrant (Idea Division)
 - `Period:` 2026.10
-- `Program:` 2026 Suwon Startup Audition (2026 수원도시재단 창업오디션), hosted by Suwon Special City and the Suwon Sustainable City Foundation (수원도시재단)
-- `Prize:` Growth Award (성장상) — Award of the Chairperson of the Korea Invention Promotion Association (한국발명진흥회장상), Idea Division
-- `Note:` Presented at the final award ceremony (Novotel Ambassador Suwon, Oct. 2026).
+- `Program:` [2026 Suwon Startup Audition (2026 수원도시재단 창업오디션)](https://www.venturesquare.net/announcement/1093753), hosted by Suwon Special City and the Suwon Sustainable City Foundation (수원도시재단)
+- `Prize:` [Growth Award (성장상)](/images/suwon-startup-audition-growth-award-2026.jpg) — Award of the Chairperson of the Korea Invention Promotion Association (한국발명진흥회장상), Idea Division
+- `Note:` Presented at the final award ceremony (Novotel Ambassador Suwon, Oct. 29, 2026).
+
+<img src="/images/suwon-startup-audition-growth-award-2026.jpg" alt="Suwon Startup Audition 2026 Growth Award plaque" style="display:block; margin:0.6em auto; max-width:420px; width:100%; border:1px solid #e6e8eb; border-radius:6px;" />
 
 </div>
 </details>
@@ -456,7 +462,7 @@ html[data-theme="dark"] .archive summary em {
 
 - `Role:` Participant
 - `Period:` 2026.10
-- `Program:` 3rd National Student Startup Week 2026 (제3회 대한민국 학생창업주간), hosted by the Ministry of Education with the National Research Foundation of Korea and the Korea Entrepreneurship Foundation (한국청년기업가정신재단)
+- `Program:` [3rd National Student Startup Week 2026 (제3회 대한민국 학생창업주간)](https://hangyo.com/news/article.html?no=108329), hosted by the Ministry of Education with the National Research Foundation of Korea and the Korea Entrepreneurship Foundation (한국청년기업가정신재단)
 - `Prize:` Excellence Prize — Award of the Chairperson of the Korea Entrepreneurship Foundation (이사장 우수상)
 
 </div>
@@ -492,7 +498,7 @@ html[data-theme="dark"] .archive summary em {
 
 - `Role:` Entrant
 - `Period:` 2026.10
-- `Program:` "Everyone's Startup" Project, 2nd edition (모두의 창업 2기), Ministry of SMEs and Startups
+- `Program:` ["Everyone's Startup" Project, 2nd edition (모두의 창업 2기)](https://www.korea.kr/multi/visualNewsView.do?newsId=148974005), Ministry of SMEs and Startups
 - `Outcome:` Advanced to Round 1; received activity funding (KRW 2,000,000) and AI-solution support.
 
 </div>
@@ -504,7 +510,7 @@ html[data-theme="dark"] .archive summary em {
 
 - `Role:` Participant
 - `Period:` 2026.10
-- `Program:` Future Women Entrepreneurs Development Project — IP Rights Program (미래여성경제인육성사업 「IP 권리화 프로그램」), Korea Women Entrepreneurs Association (한국여성경제인협회)
+- `Program:` [Future Women Entrepreneurs Development Project — IP Rights Program (미래여성경제인육성사업 「IP 권리화 프로그램」)](https://linkareer.com/activity/318488), Korea Women Entrepreneurs Association (한국여성경제인협회)
 - `Outcome:` Finally selected for intellectual-property (IP) application support, including patent-attorney fees.
 
 </div>
